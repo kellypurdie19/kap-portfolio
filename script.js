@@ -85,12 +85,10 @@ function resetGame() {
   guessInput.value = "";
   guessInput.disabled = false;
   guessBtn.textContent = "Guess";
+  guessBtn.style.display = "block"; // ✅ bring it back
 }
 
 guessBtn.onclick = () => {
-  // Stop guessing if game ended
-  if (guessInput.disabled) return;
-
   let userGuess = Number(guessInput.value);
   if (!userGuess) return;
     
