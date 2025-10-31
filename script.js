@@ -88,8 +88,8 @@ function resetGame() {
 }
 
 guessBtn.onclick = () => {
-  // If button says "Done", do nothing
-  if (guessBtn.textContent === "Done") return;
+  // Stop guessing if game ended
+  if (guessInput.disabled) return;
 
   let userGuess = Number(guessInput.value);
   if (!userGuess) return;
