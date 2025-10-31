@@ -88,6 +88,9 @@ function resetGame() {
 }
 
 guessBtn.onclick = () => {
+  // If button says "Done", do nothing
+  if (guessBtn.textContent === "Done") return;
+
   let userGuess = Number(guessInput.value);
   if (!userGuess) return;
     
@@ -113,18 +116,19 @@ guessBtn.onclick = () => {
     `;
   }
 
-  // If game ended — hook up reset button
+  // Hook reset when game ends
   if (guessInput.disabled) {
     document.getElementById("playAgain").onclick = () => {
       resetGame();
-      guessBtn.textContent = "Guess"; // ✅ restore button text
-      setTimeout(() => guessInput.focus(), 200);
+      guessBtn.textContent = "Guess";
+      result.innerHTML = ""; 
+      guessInput.focus();
     };
   } else {
-    // Game still going — refocus
     setTimeout(() => guessInput.focus(), 150);
   }
 };
+
 
 // Allow Enter key to submit guess
 guessInput.addEventListener("keypress", function (e) {
