@@ -84,4 +84,11 @@ guessBtn.onclick = () => {
     guessBtn.textContent = "Done";
   }
 };
+// Allow Enter key to submit guess
+guessInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    guessBtn.click(); // triggers the same logic as clicking the button
+  }
+});
+
 
