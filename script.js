@@ -42,6 +42,7 @@ window.addEventListener("scroll", () => {
 ================================ */
 const correctSound = document.getElementById("correctSound");
 const wrongSound = document.getElementById("wrongSound");
+console.log("wrongSound is", wrongSound);
 
 function playCorrect() {
   correctSound.currentTime = 0;
@@ -52,6 +53,7 @@ function playWrong() {
   wrongSound.currentTime = 0;
   wrongSound.play();
 }
+
 
 let randomNumber = Math.floor(Math.random() * 100) + 1;
 let guesses = [];
