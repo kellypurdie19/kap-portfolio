@@ -61,7 +61,7 @@ function resetGame() {
 guessBtn.onclick = () => {
   let userGuess = Number(guessInput.value);
   if (!userGuess) return;
-
+    
   guesses.push(userGuess);
 
   if (userGuess === randomNumber) {
@@ -91,4 +91,73 @@ guessInput.addEventListener("keypress", function (e) {
   }
 });
 
+// Auto-focus the input when modal opens (Bootstrap event)
+document.addEventListener("DOMContentLoaded", () => {
+  const gameModal = document.getElementById("gameModal");
+  if (gameModal) {
+    gameModal.addEventListener("shown.bs.modal", () => {
+      guessInput.focus();
+    });
+  }
+});
 
+
+// Refocus input after each guess
+// (small delay so it feels natural, not abrupt)
+function refocusInput() {
+  if (!guessInput.disabled) {
+    setTimeout(() => guessInput.focus(), 150);
+  }
+}
+
+// Modify guessBtn.onclick to call refocusInput after logic
+guessBtn.onclick = () => {
+  let userGuess = Number(guessInput.value);
+  if (!userGuess) return;
+    
+  guesses.push(userGuess);
+
+  if (userGuess === randomNumber) {
+    result.innerHTML = `🎉 Correct! The number was <b>${randomNumber}</b>.<br>You won in ${guesses.length} tries!<br><button id="playAgain" class="btn btn-success mt-2">Play Again</button>`;
+    guessInput.disabled = true;
+  } else if (guesses.length >= maxGuesses) {
+    result.innerHTML = `😵 Out of turns! The number was <b>${randomNumber}</b>.<br><button id="playAgain" class="btn btn-danger mt-2">Play Again</button>`;
+    guessInput.disabled = true;
+  } else {
+    result.innerHTML = `
+      <div>${userGuess > randomNumber ? "📉 Too high!" : "📈 Too low!"}</div>
+      <div>Guesses: ${guesses.join(", ")}</div>
+      <div>Tries left: ${maxGuesses - guesses.length}</div>
+    `;
+  }
+
+  // Reset button behavior
+  if (guessInput.disabled) {
+    document.getElementById("playAgain").onclick = () => {
+      resetGame();
+      setTimeout(() => guessInput.focus(), 200);
+    };
+    guessBtn.textContent = "Done";
+  }
+
+  refocusInput(); // keep guessing smoothly
+};
+/* Animated placeholder hint */
+function animatePlaceholder() {
+  const hints = [
+    "Try a number...",
+    "Maybe 42? 🤔",
+    "Press Enter to submit 👀",
+    "You got this!",
+    "High or low? 🕹️",
+  ];
+
+  let i = 0;
+  setInterval(() => {
+    guessInput.setAttribute("placeholder", hints[i]);
+    i = (i + 1) % hints.length;
+  }, 2000);
+}
+
+// Start the animation when page loads
+animatePlaceholder();
