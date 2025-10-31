@@ -62,6 +62,13 @@ function playWrong() {
   wrongSound.play();
 }
 
+function celebrate() {
+  confetti({
+    particleCount: 80,
+    spread: 65,
+    origin: { y: 0.6 }
+  });
+}
 
 let randomNumber = Math.floor(Math.random() * 100) + 1;
 let guesses = [];
@@ -145,6 +152,7 @@ guessBtn.onclick = () => {
 
   if (userGuess === randomNumber) {
     playCorrect();
+    celebrate();
     result.innerHTML = `🎉 Correct! The number was <b>${randomNumber}</b>.<br>You won in ${guesses.length} tries!<br><button id="playAgain" class="btn btn-success mt-2">Play Again</button>`;
     guessInput.disabled = true;
   } else if (guesses.length >= maxGuesses) {
