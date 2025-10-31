@@ -101,12 +101,14 @@ guessBtn.onclick = () => {
     celebrate();
     result.innerHTML = `🎉 Correct! The number was <b>${randomNumber}</b>.<br>You won in ${guesses.length} tries!<br><button id="playAgain" class="btn btn-success mt-2">Play Again</button>`;
     guessInput.disabled = true;
-    guessBtn.textContent = "Done";
+    guessBtn.style.display = "none";
+
   } else if (guesses.length >= maxGuesses) {
     playWrong();
     result.innerHTML = `😵 Out of turns! The number was <b>${randomNumber}</b>.<br><button id="playAgain" class="btn btn-danger mt-2">Play Again</button>`;
     guessInput.disabled = true;
-    guessBtn.textContent = "Done";
+   guessBtn.style.display = "none";
+
   } else {
     playWrong();
     result.innerHTML = `
