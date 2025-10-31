@@ -95,15 +95,17 @@ guessBtn.onclick = () => {
 
   if (userGuess === randomNumber) {
     playCorrect();
+    celebrate();
     result.innerHTML = `🎉 Correct! The number was <b>${randomNumber}</b>.<br>You won in ${guesses.length} tries!<br><button id="playAgain" class="btn btn-success mt-2">Play Again</button>`;
     guessInput.disabled = true;
+    guessBtn.textContent = "Done";
   } else if (guesses.length >= maxGuesses) {
     playWrong();
     result.innerHTML = `😵 Out of turns! The number was <b>${randomNumber}</b>.<br><button id="playAgain" class="btn btn-danger mt-2">Play Again</button>`;
     guessInput.disabled = true;
+    guessBtn.textContent = "Done";
   } else {
     playWrong();
-
     result.innerHTML = `
       <div>${userGuess > randomNumber ? "📉 Too high!" : "📈 Too low!"}</div>
       <div>Guesses: ${guesses.join(", ")}</div>
@@ -111,12 +113,19 @@ guessBtn.onclick = () => {
     `;
   }
 
-  // Reset button
+  // If game ended — hook up reset button
   if (guessInput.disabled) {
-    document.getElementById("playAgain").onclick = resetGame;
-    guessBtn.textContent = "Done";
+    document.getElementById("playAgain").onclick = () => {
+      resetGame();
+      guessBtn.textContent = "Guess"; // ✅ restore button text
+      setTimeout(() => guessInput.focus(), 200);
+    };
+  } else {
+    // Game still going — refocus
+    setTimeout(() => guessInput.focus(), 150);
   }
 };
+
 // Allow Enter key to submit guess
 guessInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
@@ -143,42 +152,6 @@ function refocusInput() {
   }
 }
 
-// Modify guessBtn.onclick to call refocusInput after logic
-guessBtn.onclick = () => {
-  let userGuess = Number(guessInput.value);
-  if (!userGuess) return;
-    
-  guesses.push(userGuess);
-
-  if (userGuess === randomNumber) {
-    playCorrect();
-    celebrate();
-    result.innerHTML = `🎉 Correct! The number was <b>${randomNumber}</b>.<br>You won in ${guesses.length} tries!<br><button id="playAgain" class="btn btn-success mt-2">Play Again</button>`;
-    guessInput.disabled = true;
-  } else if (guesses.length >= maxGuesses) {
-    playWrong();
-    result.innerHTML = `😵 Out of turns! The number was <b>${randomNumber}</b>.<br><button id="playAgain" class="btn btn-danger mt-2">Play Again</button>`;
-    guessInput.disabled = true;
-  } else {
-    playWrong();
-    result.innerHTML = `
-      <div>${userGuess > randomNumber ? "📉 Too high!" : "📈 Too low!"}</div>
-      <div>Guesses: ${guesses.join(", ")}</div>
-      <div>Tries left: ${maxGuesses - guesses.length}</div>
-    `;
-  }
-
-  // Reset button behavior
-  if (guessInput.disabled) {
-    document.getElementById("playAgain").onclick = () => {
-      resetGame();
-      setTimeout(() => guessInput.focus(), 200);
-    };
-    guessBtn.textContent = "Done";
-  }
-
-  refocusInput(); // keep guessing smoothly
-};
 /* Animated placeholder hint */
 function animatePlaceholder() {
   const hints = [
