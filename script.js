@@ -40,16 +40,24 @@ window.addEventListener("scroll", () => {
 /* ================================
    Guess the Number — Full Game
 ================================ */
-const correctSound = document.getElementById("correctSound");
-const wrongSound = document.getElementById("wrongSound");
-console.log("wrongSound is", wrongSound);
+
+// Declare variables (we will assign them after page loads)
+let correctSound, wrongSound;
+
+document.addEventListener("DOMContentLoaded", () => {
+  correctSound = document.getElementById("correctSound");
+  wrongSound = document.getElementById("wrongSound");
+  console.log("Sounds ready:", correctSound, wrongSound);
+});
 
 function playCorrect() {
+  if (!correctSound) return;
   correctSound.currentTime = 0;
   correctSound.play();
 }
 
 function playWrong() {
+  if (!wrongSound) return;
   wrongSound.currentTime = 0;
   wrongSound.play();
 }
