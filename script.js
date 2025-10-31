@@ -38,13 +38,50 @@ window.addEventListener("scroll", () => {
 });
 
 /* ================================
-   Guess the Number
+   Guess the Number — Full Game
 ================================ */
 
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+let guesses = [];
+let maxGuesses = 10;
+
 const guessBtn = document.getElementById("guessBtn");
+const guessInput = document.getElementById("guessInput");
+const result = document.getElementById("result");
+
+function resetGame() {
+  randomNumber = Math.floor(Math.random() * 100) + 1;
+  guesses = [];
+  result.innerHTML = "";
+  guessInput.value = "";
+  guessInput.disabled = false;
+  guessBtn.textContent = "Guess";
+}
+
 guessBtn.onclick = () => {
-  const userGuess = Number(document.getElementById("guessInput").value);
-  const num = Math.floor(Math.random() * 10) + 1;
-  document.getElementById("result").textContent =
-    userGuess === num ? "You got it! 🎉" : `Nope — it was ${num}`;
+  let userGuess = Number(guessInput.value);
+  if (!userGuess) return;
+
+  guesses.push(userGuess);
+
+  if (userGuess === randomNumber) {
+    result.innerHTML = `🎉 Correct! The number was <b>${randomNumber}</b>.<br>You won in ${guesses.length} tries!<br><button id="playAgain" class="btn btn-success mt-2">Play Again</button>`;
+    guessInput.disabled = true;
+  } else if (guesses.length >= maxGuesses) {
+    result.innerHTML = `😵 Out of turns! The number was <b>${randomNumber}</b>.<br><button id="playAgain" class="btn btn-danger mt-2">Play Again</button>`;
+    guessInput.disabled = true;
+  } else {
+    result.innerHTML = `
+      <div>${userGuess > randomNumber ? "📉 Too high!" : "📈 Too low!"}</div>
+      <div>Guesses: ${guesses.join(", ")}</div>
+      <div>Tries left: ${maxGuesses - guesses.length}</div>
+    `;
+  }
+
+  // Reset button
+  if (guessInput.disabled) {
+    document.getElementById("playAgain").onclick = resetGame;
+    guessBtn.textContent = "Done";
+  }
 };
+
