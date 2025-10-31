@@ -40,6 +40,18 @@ window.addEventListener("scroll", () => {
 /* ================================
    Guess the Number — Full Game
 ================================ */
+const correctSound = document.getElementById("correctSound");
+const wrongSound = document.getElementById("wrongSound");
+
+function playCorrect() {
+  correctSound.currentTime = 0;
+  correctSound.play();
+}
+
+function playWrong() {
+  wrongSound.currentTime = 0;
+  wrongSound.play();
+}
 
 let randomNumber = Math.floor(Math.random() * 100) + 1;
 let guesses = [];
@@ -65,12 +77,15 @@ guessBtn.onclick = () => {
   guesses.push(userGuess);
 
   if (userGuess === randomNumber) {
+    playCorrect();
     result.innerHTML = `🎉 Correct! The number was <b>${randomNumber}</b>.<br>You won in ${guesses.length} tries!<br><button id="playAgain" class="btn btn-success mt-2">Play Again</button>`;
     guessInput.disabled = true;
   } else if (guesses.length >= maxGuesses) {
     result.innerHTML = `😵 Out of turns! The number was <b>${randomNumber}</b>.<br><button id="playAgain" class="btn btn-danger mt-2">Play Again</button>`;
     guessInput.disabled = true;
   } else {
+    playWrong();
+
     result.innerHTML = `
       <div>${userGuess > randomNumber ? "📉 Too high!" : "📈 Too low!"}</div>
       <div>Guesses: ${guesses.join(", ")}</div>
