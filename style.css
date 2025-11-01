@@ -371,44 +371,114 @@ body {
   background: rgba(255,255,255,0.6);
 }
 
-/* ✅ MODERN hero text exactly like you want */
-[data-theme="modern"] .hero-modern {
+/* =====================================================
+   HERO CORE
+=====================================================*/
+
+.hero {
+  position: relative;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* stick text to left */
-  text-align: left;
-  padding-left: 6vw; /* nice breathing space from edge */
-}
-
-[data-theme="modern"] .hero-modern p,
-[data-theme="modern"] .hero-modern h1,
-[data-theme="modern"] .hero-modern .hero-sub {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-/* ✅ Kelly Name — single line full width */
-[data-theme="modern"] .hero-name {
-  white-space: nowrap;
-  font-size: clamp(5rem, 13vw, 14vw);
-  opacity: 0.12;
-  color: rgba(21, 3, 111, 0.18);
-  left: 0;
-  right: 0;
-  text-align: center; /* stays centered as a background title */
-}
-
-/* Modern hero positions text left */
-[data-theme="modern"] .hero {
   justify-content: flex-start;
-  align-items: flex-start;
-  text-align: left;
-  padding: 8rem 0 0 8vw;
+  padding: 10vh 8vw 0;
+  z-index: 2;
 }
 
-/* Modern button left */
-[data-theme="modern"] .play-tag {
-  margin-left: 0;
+/* MODERN MODE =======================================*/
+
+.hero-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
 }
+
+[data-theme="modern"] .hero-modern {
+  display: flex;
+}
+
+[data-theme="modern"] .hero-arcade {
+  display: none;
+}
+
+.hero h1.about-type {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  max-width: 450px;
+}
+
+/* prevent subtext jump during typing */
+.about-type {
+  display: inline-block;
+  min-height: 3.5rem;
+}
+
+/* ARCADE MODE =======================================*/
+
+[data-theme="arcade"] .hero {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 0;
+}
+
+.hero-arcade {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+[data-theme="arcade"] .hero-arcade {
+  display: flex;
+}
+
+[data-theme="arcade"] .hero-modern {
+  display: none;
+}
+
+/* HERO BUTTONS */
+.play-tag {
+  margin-top: 1.5rem;
+}
+
+[data-theme="arcade"] .play-tag {
+  margin: 1.2rem auto 0;
+}
+
+/* BIG NAME ==========================================*/
+
+.hero-name {
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: clamp(4rem, 14vw, 16vw);
+  font-weight: 800;
+  opacity: 0.10;
+  pointer-events: none;
+  text-align: center;
+  z-index: 0;
+}
+
+/* prevent name overflow */
+.hero-name {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+[data-theme="arcade"] .hero-name {
+  color: rgba(255,255,255,0.2);
+}
+
 
 /* Arcade centered hero */
 [data-theme="arcade"] .hero {

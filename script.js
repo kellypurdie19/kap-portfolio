@@ -256,8 +256,8 @@ function draw() {
     ctx.globalCompositeOperation = "lighter";
     const theme = document.documentElement.getAttribute("data-theme");
     ctx.shadowBlur = theme === "arcade" ? 30 : 0;
-
     ctx.shadowColor = theme === "arcade" ? "cyan" : "transparent";
+
 
     ctx.beginPath();
     ctx.fillStyle =
