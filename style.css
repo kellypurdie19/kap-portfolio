@@ -500,3 +500,44 @@ body {
   width: 100vw;
   white-space: nowrap;
 }
+/* Base hero layout */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  z-index: 5;
+}
+
+/* Modern mode — left align */
+[data-theme="modern"] .hero {
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding: 10vh 8vw;
+}
+
+[data-theme="modern"] .hero-modern {
+  display: block;
+}
+
+[data-theme="modern"] .hero-arcade {
+  display: none;
+}
+
+/* Arcade mode — center hero text */
+[data-theme="arcade"] .hero {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+[data-theme="arcade"] .hero-modern {
+  display: none;
+}
+
+[data-theme="arcade"] .hero-arcade {
+  display: block;
+}
