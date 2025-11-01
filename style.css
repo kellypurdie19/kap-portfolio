@@ -107,3 +107,49 @@ body::before {
   font-weight: 600;
   border: 1px solid rgba(255,255,255,0.1);
 }
+/* ===============================
+   🌟 Project Card Hybrid Styles
+=============================== */
+
+/* Base card styling */
+.proj-card {
+  perspective: 800px;
+  border: none;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+
+/* Card inner content */
+.proj-card .card-inner {
+  padding: 2rem;
+  border-radius: 16px;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(12px);
+}
+
+/* Modern mode — frosted glass */
+[data-theme="modern"] .proj-card .card-inner {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Arcade mode — neon glow */
+[data-theme="arcade"] .proj-card .card-inner {
+  background: rgba(30, 30, 30, 0.6);
+  box-shadow:
+    0 0 12px rgba(255, 0, 200, 0.7),
+    0 0 24px rgba(0, 255, 255, 0.5);
+  border: 1px solid rgba(255, 0, 200, 0.4);
+}
+
+/* Hover effects */
+.proj-card:hover {
+  transform: translateY(-6px);
+}
+
+[data-theme="arcade"] .proj-card:hover .card-inner {
+  transform: scale(1.03) rotateX(6deg) rotateY(-6deg);
+  box-shadow:
+    0 0 20px rgba(255,0,200,0.9),
+    0 0 40px rgba(0,255,255,0.6);
+}
