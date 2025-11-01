@@ -19,7 +19,7 @@
     color:#4c0130;
 }
 .modal-content .btn-primary{
-    color:#00f6ff;
+    background-color:#00f6ff;
 }
 body {
   background: var(--bg);
