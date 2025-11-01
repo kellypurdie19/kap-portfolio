@@ -63,6 +63,8 @@ body {
 }
 
 .about-type {
+  min-height: 2.8rem;
+  display: inline-block;
   font-size: clamp(2.2rem, 4vw, 3.5rem);
   font-weight: 800;
   min-height: 2.8rem; /* prevents jumping */
@@ -397,11 +399,6 @@ body {
   max-width: 450px;
 }
 
-/* prevent subtext jump during typing */
-.about-type {
-  display: inline-block;
-  min-height: 3.5rem;
-}
 
 /* ARCADE MODE =======================================*/
 
