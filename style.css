@@ -44,10 +44,12 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 10vh 8vw 0;
+  justify-content: center; /* centers text vertically like arcade */
+  padding: 10vh 8vw;
   z-index: 2;
 }
+
+
 
 /* Modern Layout */
 .hero-modern {
