@@ -353,25 +353,20 @@ body {
   transform: translateY(-2px);
   background: rgba(255,255,255,0.6);
 }
-/* ✅ MODERN MODE — right-align text ONLY (container stays put) */
+
+/* ✅ MODERN hero text exactly like you want */
 [data-theme="modern"] .hero-modern {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;  /* pushes text right inside container */
-  text-align: right;
+  align-items: flex-start; /* stick text to left */
+  text-align: left;
+  padding-left: 6vw; /* nice breathing space from edge */
 }
 
 [data-theme="modern"] .hero-modern p,
 [data-theme="modern"] .hero-modern h1,
-[data-theme="modern"] .hero-modern .hero-typing,
 [data-theme="modern"] .hero-modern .hero-sub {
-  text-align: right !important;
-  margin-right: 0;
-  margin-left: auto;
-}
-
-[data-theme="modern"] .play-tag {
-  margin-left: auto;
-  margin-right: 0;
+  text-align: left !important;
+  margin-left: 0 !important;
 }
 
