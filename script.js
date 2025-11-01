@@ -181,6 +181,9 @@ animatePlaceholder();
    Ink Blob Cursor Interaction
 ============================ */
 
+/* ============================
+   Ink Blob Cursor Interaction
+============================ */
 const canvas = document.getElementById("inkCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -189,17 +192,18 @@ canvas.height = window.innerHeight;
 
 let blobs = [];
 
-for (let i = 0; i < 15; i++) {
+// fewer blobs, inhale-exhale feeling
+for (let i = 0; i < 18; i++) {
   blobs.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 120 + 60, // blob size
-    vx: 0,
-    vy: 0
+    r: Math.random() * 120 + 80,
+    vx: (Math.random() - 0.5) * 0.3, // gentle drift
+    vy: (Math.random() - 0.5) * 0.3
   });
 }
 
-let mouse = { x: 0, y: 0 };
+let mouse = { x: -9999, y: -9999 }; // default far away so blobs always move
 
 canvas.addEventListener("mousemove", (e) => {
   mouse.x = e.clientX;
@@ -209,23 +213,32 @@ canvas.addEventListener("mousemove", (e) => {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  const theme = document.documentElement.getAttribute("data-theme");
+
   blobs.forEach(b => {
-    let dx = b.x - mouse.x;
-    let dy = b.y - mouse.y;
-    let dist = Math.sqrt(dx*dx + dy*dy);
-
-    // repulsion effect
-    if (dist < 200) {
-      let force = (200 - dist) / 200;
-      b.vx += dx * force * 0.03;
-      b.vy += dy * force * 0.03;
-    }
-
-    // motion
+    // gravity-style drift (never fully stops)
     b.x += b.vx;
     b.y += b.vy;
-    b.vx *= 0.92;
-    b.vy *= 0.92;
+
+    // gentle attraction back toward center so they don't wander off to Bermuda
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    b.vx += (centerX - b.x) * 0.00005;
+    b.vy += (centerY - b.y) * 0.00005;
+
+    // mouse repulsion — soft
+    let dx = b.x - mouse.x;
+    let dy = b.y - mouse.y;
+    let dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < 150) {
+      let force = (150 - dist) / 150;
+      b.vx += dx * force * 0.01;
+      b.vy += dy * force * 0.01;
+    }
+
+    // friction
+    b.vx *= 0.995;
+    b.vy *= 0.995;
 
     // wrap edges
     if (b.x < -200) b.x = canvas.width + 200;
@@ -233,12 +246,10 @@ function draw() {
     if (b.y < -200) b.y = canvas.height + 200;
     if (b.y > canvas.height + 200) b.y = -200;
 
-    // draw blobs
     ctx.beginPath();
-    const theme = document.documentElement.getAttribute("data-theme");
-        ctx.fillStyle = theme === "arcade"
-        ? "rgba(0,255,255,0.06)"
-        : "rgba(0,0,0,0.6)";
+    ctx.fillStyle = theme === "arcade"
+      ? "rgba(0,255,255,0.05)"
+      : "rgba(0,0,0,0.05)";
     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
     ctx.fill();
   });
