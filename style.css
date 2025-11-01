@@ -35,97 +35,85 @@ body {
 }
 
 /* =========================
-   HERO LAYOUT RESET
+   HERO — FINAL CLEAN VERSION
 ========================= */
 
+/* Base hero wrapper */
 .hero {
-  height: 100vh;
   position: relative;
+  height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: flex-start;
-  padding: 8rem 8vw;
+  padding: 10vh 8vw 0;
+  z-index: 2;
 }
 
-/* Modern default */
+/* Modern Layout */
 .hero-modern {
-  display: block;
-}
-
-.hero-arcade {
-  display: none;
-}
-
-.hero-typing {
-  display: inline-block;
-  min-height: 2.8rem; /* prevents paragraph jump */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  max-width: 600px;
 }
 
 .hero-text-wrapper {
-  max-width: 600px;
-  text-align: left;
-  margin: 0;
-  padding-left: 0;
-}
-[data-theme="modern"] .hero-modern {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 1rem;
-  text-align: left;
 }
 
-[data-theme="modern"] .hero-modern .hero-sub {
-  text-align: left;
+.about-type {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  min-height: 3.2rem; /* holds space so paragraph doesn't jump */
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  max-width: 450px;
   margin: 0;
 }
 
+/* Play button — Modern left */
 [data-theme="modern"] .play-tag {
-  margin: 1.5rem 0 0 0;
+  margin: 1.5rem 0 0;
+  align-self: flex-start;
 }
 
-
-.about-type {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 700;
-}
-
-/* Big ghost name at bottom */
+/* Ghost name */
 .hero-name {
   position: absolute;
   bottom: 3vh;
   left: 50%;
   transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: clamp(6rem, 15vw, 20vw);
+  font-size: clamp(5rem, 14vw, 17vw);
   font-weight: 800;
-  opacity: 0.12;
+  white-space: nowrap;
+  opacity: 0.10;
   pointer-events: none;
   z-index: -1;
-  text-align: center;
 }
 
-
-
-/* Mobile adjusts */
+/* Mobile ghost name */
 @media (max-width: 700px) {
   .hero-name {
+    font-size: clamp(3rem, 15vw, 15vw);
     white-space: normal;
-    line-height: 0.9;
-    font-size: clamp(2.2rem, 12vw, 12vw);
   }
 }
 
 /* =========================
-   ARCADE MODE OVERRIDES
+   Arcade Overrides
 ========================= */
 
 [data-theme="arcade"] .hero {
+  justify-content: center;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  padding: 0;
 }
-
 
 [data-theme="arcade"] .hero-modern {
   display: none;
@@ -138,13 +126,12 @@ body {
   align-items: center;
 }
 
-[data-theme="arcade"] .hero-sub {
-  text-align: center;
-  margin: 0 auto;
+[data-theme="arcade"] .hero-name {
+  color: rgba(255,255,255,0.18);
 }
 
-[data-theme="arcade"] .hero-name {
-  color: rgba(255,255,255,0.2);
+[data-theme="arcade"] .play-tag {
+  margin: 1.5rem auto 0;
 }
 
 
