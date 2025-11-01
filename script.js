@@ -256,10 +256,9 @@ function draw() {
     ctx.shadowBlur = theme === "arcade" ? 30 : 0;
     ctx.shadowColor = theme === "arcade" ? "cyan" : "transparent";
 
-
     ctx.beginPath();
     ctx.fillStyle =
-      theme === "arcade"
+    theme === "arcade"
         ? "rgba(0,255,255,0.28)"
         : "rgba(0,0,0,0.08)";
     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
