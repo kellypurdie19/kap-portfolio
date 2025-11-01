@@ -179,14 +179,14 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -5; /* behind everything */
+  z-index: -2; /* behind everything */
   background: #ffffff; /* fallback */
   pointer-events: none;
 
 }
 
 [data-theme="arcade"] #inkCanvas {
-  background: #161f01;
+  background: #000000;
 }
 
 /* =====================================================
