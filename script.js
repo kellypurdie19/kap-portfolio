@@ -23,14 +23,6 @@ window.addEventListener("scroll", () => {
 });
 ball.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-/* Background slow parallax */
-const bg = document.getElementById("bg");
-window.addEventListener("scroll", () => {
-  bg.classList.add("animate");
-  clearTimeout(bg._timer);
-  bg._timer = setTimeout(() => bg.classList.remove("animate"), 600);
-});
-
 
 /* ================================
    Dot Navigation
@@ -243,10 +235,10 @@ function draw() {
 
     // draw blobs
     ctx.beginPath();
-    ctx.fillStyle = getComputedStyle(document.documentElement)
-                      .getAttribute("data-theme") === "arcade"
-                      ? "rgba(0,255,255,0.15)"
-                      : "rgba(0,0,0,0.10)";
+    const theme = document.documentElement.getAttribute("data-theme");
+        ctx.fillStyle = theme === "arcade"
+        ? "rgba(0,255,255,0.15)"
+        : "rgba(0,0,0,0.10)";
     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
     ctx.fill();
   });
