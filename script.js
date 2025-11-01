@@ -23,6 +23,15 @@ window.addEventListener("scroll", () => {
 });
 ball.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
+/* Background slow parallax */
+const bg = document.getElementById("bg");
+window.addEventListener("scroll", () => {
+  bg.classList.add("animate");
+  clearTimeout(bg._timer);
+  bg._timer = setTimeout(() => bg.classList.remove("animate"), 600);
+});
+
+
 /* ================================
    Dot Navigation
 ================================ */
