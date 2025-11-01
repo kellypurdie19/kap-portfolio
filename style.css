@@ -15,7 +15,7 @@
   --accent: #ff0080;
   --silk-opacity: 1;
 }
-.modal-content h5, .modal-content mt-3 {
+.modal-content h5, .modal-content .mt-3 {
     color:#4c0130;
 }
 .modal-content .btn-primary{
