@@ -71,7 +71,7 @@ body {
 [data-theme="arcade"] .hero-arcade { display: flex; flex-direction: column; text-align: center; gap: 1rem; }
 
 .hero-text-block {
-  text-align: right;
+  text-align: left;
   width: 100%;
   max-width: 900px;
   margin-left: auto;
