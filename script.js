@@ -232,6 +232,8 @@ canvas.addEventListener("mouseup", () => (mouse.down = false));
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  const theme = document.documentElement.getAttribute("data-theme");
+
   blobs.forEach(b => {
     let dx = b.x - mouse.x;
     let dy = b.y - mouse.y;
@@ -239,7 +241,7 @@ function draw() {
 
     if (dist < 200) {
       let force = (200 - dist) / 200;
-      let push = mouse.down ? 0.12 : 0.04; // stronger when pressed
+      let push = mouse.down ? 0.12 : 0.04;
       b.vx += dx * force * push;
       b.vy += dy * force * push;
     }
@@ -247,21 +249,29 @@ function draw() {
     b.x += b.vx;
     b.y += b.vy;
 
-    // gentle slow down
     b.vx *= mouse.down ? 0.92 : 0.96;
     b.vy *= mouse.down ? 0.92 : 0.96;
 
+    // ✅ TRON glowing plasma mode
+    ctx.globalCompositeOperation = "lighter";
+    ctx.shadowBlur = theme === "arcade" ? 30 : 0;
+    ctx.shadowColor = theme === "arcade" ? "cyan" : "transparent";
+
     ctx.beginPath();
-    const theme = document.documentElement.getAttribute("data-theme");
     ctx.fillStyle =
       theme === "arcade"
-        ? "rgba(0,255,255,0.18)"  // neon brighter
-        : "rgba(0,0,0,0.15)";     // modern stronger ink
+        ? "rgba(0,255,255,0.28)"
+        : "rgba(0,0,0,0.14)";
     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
     ctx.fill();
   });
 
   requestAnimationFrame(draw);
 }
+
 draw();
+    ctx.globalCompositeOperation = "lighter";
+    ctx.shadowBlur = theme === "arcade" ? 30 : 0;
+    ctx.shadowColor = theme === "arcade" ? "cyan" : "transparent";
+
 });

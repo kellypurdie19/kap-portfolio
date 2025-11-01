@@ -189,6 +189,12 @@ body::before {
   /*background: #2e00fd;*/
   background: transparent;
 }
+/* TRON glow sky */
+[data-theme="arcade"] #bg {
+  background: radial-gradient(circle at 50% 30%, rgba(0,255,255,0.25), transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(255,0,200,0.25), transparent 70%),
+              #000000;
+}
 
 /* =====================================================
    CURSOR GLOW
@@ -198,19 +204,27 @@ body {
 }
 
 .cursor-glow {
-  position: fixed;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   pointer-events: none;
+  position: fixed;
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(6px);
-  transition: transform 0.08s ease-out, background 0.3s;
-  mix-blend-mode: multiply;
+  mix-blend-mode: screen;
+  backdrop-filter: blur(4px);
+  background: rgba(0,255,255,0.35);
+  box-shadow: 
+    0 0 8px rgba(0,255,255,0.8),
+    0 0 15px rgba(255,0,200,0.5);
+  transition: transform 0.07s ease-out;
 }
+
 
 [data-theme="arcade"] .cursor-glow {
   background: rgba(0,255,255,0.5);
   mix-blend-mode: screen;
+}
+[data-theme="arcade"] #inkCanvas {
+  filter: drop-shadow(0 0 15px rgba(0,255,255,0.35))
+          drop-shadow(0 0 25px rgba(255,0,0,0.25));
 }
