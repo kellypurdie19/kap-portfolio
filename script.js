@@ -275,3 +275,18 @@ draw();
     ctx.shadowColor = theme === "arcade" ? "cyan" : "transparent";
 
 });
+const aboutEl = document.querySelector('.about-type');
+const aboutText = "Hi, I'm Kelly — a creative front-end designer building playful, intuitive web experiences.";
+
+let i = 0;
+function typeAbout() {
+  if (i < aboutText.length) {
+    aboutEl.textContent += aboutText.charAt(i);
+    i++;
+    setTimeout(typeAbout, 35);
+  }
+}
+
+window.addEventListener("load", () => {
+  setTimeout(typeAbout, 400);
+});

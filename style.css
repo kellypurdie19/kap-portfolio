@@ -28,6 +28,27 @@ body {
   padding: 120px 0;
 }
 
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers about text */
+  padding: 0 4vw;
+}
+
+.hero-name {
+  position: absolute;
+  bottom: 2vh;
+  left: 0;
+  right: 0;
+  font-size: clamp(3rem, 12vw, 12rem);
+  font-weight: 800;
+  text-align: center;
+  color: white;
+  pointer-events: none;
+}
+
 .section-title {
   font-weight: 800;
   font-size: 2.6rem;
