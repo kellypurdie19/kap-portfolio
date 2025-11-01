@@ -63,7 +63,6 @@ body {
 }
 
 .about-type {
-  min-height: 2.8rem;
   display: inline-block;
   font-size: clamp(2.2rem, 4vw, 3.5rem);
   font-weight: 800;
@@ -442,27 +441,28 @@ body {
 
 /* BIG NAME ==========================================*/
 
+/* Default (arcade mode) — center */
 .hero-name {
   position: absolute;
-  bottom: 4vh;
+  bottom: 2vh;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: clip;
-  white-space: nowrap;
-  font-size: clamp(4rem, 14vw, 16vw);
+  font-size: clamp(3rem, 12vw, 11rem);
   font-weight: 800;
-  opacity: 0.10;
+  color: var(--text);
+  opacity: .08;
   pointer-events: none;
-  text-align: center;
-  z-index: 0;
-}
-/* Modern name — huge background headline */
-[data-theme="modern"] .hero-name {
-  font-size: clamp(5rem, 14vw, 18vw);
   white-space: nowrap;
 }
+
+/* Modern mode — left align */
+[data-theme="modern"] .hero-name {
+  left: 0;
+  transform: none;
+  padding-left: 8vw; /* match hero padding */
+  text-align: left;
+}
+
 
 /* Arcade name — slightly smaller and wraps softly */
 [data-theme="arcade"] .hero-name {
