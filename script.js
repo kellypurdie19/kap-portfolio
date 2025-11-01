@@ -232,8 +232,6 @@ canvas.addEventListener("mouseup", () => (mouse.down = false));
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const theme = document.documentElement.getAttribute("data-theme");
-
   blobs.forEach(b => {
     let dx = b.x - mouse.x;
     let dy = b.y - mouse.y;

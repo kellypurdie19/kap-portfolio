@@ -150,7 +150,7 @@ body::before {
 
 /* Pinball ball */
 .pinball {
-  width: 24px;4
+  width: 24px;
   height: 24px;
   border-radius: 50%;
   background: var(--accent);
@@ -443,6 +443,9 @@ body {
   bottom: 4vh;
   left: 50%;
   transform: translateX(-50%);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: clip;
   white-space: nowrap;
   font-size: clamp(4rem, 14vw, 16vw);
   font-weight: 800;
@@ -451,13 +454,20 @@ body {
   text-align: center;
   z-index: 0;
 }
-
-/* prevent name overflow */
-.hero-name {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: clip;
+/* Modern name — huge background headline */
+[data-theme="modern"] .hero-name {
+  font-size: clamp(5rem, 14vw, 18vw);
+  white-space: nowrap;
 }
+
+/* Arcade name — slightly smaller and wraps softly */
+[data-theme="arcade"] .hero-name {
+  font-size: clamp(4rem, 11vw, 13vw);
+  white-space: normal;
+  line-height: 0.9;
+  opacity: 0.08; /* arcade = subtle */
+}
+
 
 [data-theme="arcade"] .hero-name {
   color: rgba(255,255,255,0.2);
