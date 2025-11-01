@@ -552,3 +552,43 @@ body {
 [data-theme="arcade"] .hero-arcade {
   display: block;
 }
+/* --- FORCE HERO LAYOUT CORRECT --- */
+
+/* Make hero always span full width and center contents */
+.hero {
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ghost name — perfectly centered and SAME in arcade + modern */
+.hero-name {
+  position: absolute;
+  bottom: 6vh;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Modern hero text left, but name stays centered */
+[data-theme="modern"] .hero {
+  padding: 8rem 8vw 0;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Arcade hero text center */
+[data-theme="arcade"] .hero {
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Prevent wrapping in arcade */
+[data-theme="arcade"] .hero-name {
+  white-space: nowrap;
+}
+
