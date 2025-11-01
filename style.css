@@ -97,7 +97,7 @@ body {
   text-align: center;
   font-size: clamp(3rem, 12vw, 11rem);
   font-weight: 800;
-  color: rgba(0,0,0,0.18); /* stronger but still subtle */
+  color: rgba(21, 3, 111, 0.18); /* stronger but still subtle */
   pointer-events: none;
 }
 
