@@ -369,4 +369,14 @@ body {
   text-align: left !important;
   margin-left: 0 !important;
 }
+/* ✅ Kelly Name — single line full width */
+[data-theme="modern"] .hero-name {
+  white-space: nowrap;
+  font-size: clamp(5rem, 13vw, 14vw);
+  opacity: 0.12;
+  color: rgba(21, 3, 111, 0.18);
+  left: 0;
+  right: 0;
+  text-align: center; /* stays centered as a background title */
+}
 
