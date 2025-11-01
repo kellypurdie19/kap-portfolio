@@ -562,14 +562,12 @@ body {
 }
 
 /* Ghost name — perfectly centered and SAME in arcade + modern */
+/* Fix ghost name centering */
 .hero-name {
-  position: absolute;
-  bottom: 6vh;
-  width: 100%;
-  text-align: center;
-  white-space: nowrap;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center !important;
+  width: max-content;
 }
 
 /* Modern hero text left, but name stays centered */
@@ -587,8 +585,9 @@ body {
   text-align: center;
 }
 
-/* Prevent wrapping in arcade */
+/* Arcade mode — keep it on one line and centered */
 [data-theme="arcade"] .hero-name {
-  white-space: nowrap;
+  white-space: nowrap !important;
+  font-size: clamp(5rem, 14vw, 20vw);
 }
 
