@@ -221,7 +221,7 @@ for (let i = 0; i < 30; i++) {
 
 let mouse = { x: -9999, y: -9999, down: false };
 
-canvas.addEventListener("mousemove", e => {
+document.addEventListener("mousemove", e => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
