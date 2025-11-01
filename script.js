@@ -255,8 +255,8 @@ function draw() {
     const theme = document.documentElement.getAttribute("data-theme");
     ctx.fillStyle =
       theme === "arcade"
-        ? "rgba(0,255,255,0.12)"
-        : "rgba(0,0,0,0.09)";
+        ? "rgba(0,255,255,0.18)"  // neon brighter
+        : "rgba(0,0,0,0.15)";     // modern stronger ink
     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
     ctx.fill();
   });
