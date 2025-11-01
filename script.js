@@ -270,9 +270,6 @@ function draw() {
 }
 
 draw();
-    ctx.globalCompositeOperation = "lighter";
-    ctx.shadowBlur = theme === "arcade" ? 30 : 0;
-    ctx.shadowColor = theme === "arcade" ? "cyan" : "transparent";
 
 });
 
