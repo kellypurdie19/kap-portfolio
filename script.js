@@ -275,9 +275,10 @@ draw();
     ctx.shadowColor = theme === "arcade" ? "cyan" : "transparent";
 
 });
+
 const aboutEl = document.querySelector('.about-type');
 
-const original = " Hello. I am Kelly Ahola";
+const original = "Hello. I am Kelly Ahola";
 const replaceWith = "Hello. I am —";
 
 function typeDeleteReplace() {

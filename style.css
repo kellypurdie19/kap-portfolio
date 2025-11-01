@@ -56,15 +56,32 @@ body {
   display: none;
 }
 
-/* Right aligned modern text block */
-.hero-text-wrapper {
-  max-width: 600px;
-  text-align: right;
-  margin-left: auto;
-}
 .hero-typing {
   display: inline-block;
   min-height: 2.8rem; /* prevents paragraph jump */
+}
+
+.hero-text-wrapper {
+  max-width: 600px;
+  text-align: left;
+  margin: 0;
+  padding-left: 0;
+}
+[data-theme="modern"] .hero-modern {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+}
+
+[data-theme="modern"] .hero-modern .hero-sub {
+  text-align: left;
+  margin: 0;
+}
+
+[data-theme="modern"] .play-tag {
+  margin: 1.5rem 0 0 0;
 }
 
 
@@ -73,27 +90,21 @@ body {
   font-weight: 700;
 }
 
-.hero-sub {
-  max-width: 440px;
-  line-break: auto;
-  text-align: right;
-  margin-left: auto;
-  font-size: 1.1rem;
-}
-
 /* Big ghost name at bottom */
 .hero-name {
   position: absolute;
-  bottom: 4vh;
+  bottom: 3vh;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  font-size: clamp(5rem, 14vw, 18vw);
+  font-size: clamp(6rem, 15vw, 20vw);
   font-weight: 800;
   opacity: 0.12;
   pointer-events: none;
   z-index: -1;
+  text-align: center;
 }
+
 
 
 /* Mobile adjusts */
@@ -110,10 +121,11 @@ body {
 ========================= */
 
 [data-theme="arcade"] .hero {
-  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 0;
+  justify-content: center;
 }
+
 
 [data-theme="arcade"] .hero-modern {
   display: none;
@@ -391,7 +403,7 @@ body {
 [data-theme="modern"] .hero {
   align-items: flex-start;
   text-align: left;
-  padding-left: 8vw;
+  padding: 8rem 0 0 8vw;
 }
 
 /* Modern button left */
