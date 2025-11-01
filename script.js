@@ -276,17 +276,32 @@ draw();
 
 });
 const aboutEl = document.querySelector('.about-type');
-const aboutText = "Hi there I am — a creative front-end designer building playful, intuitive web experiences.";
 
-let i = 0;
-function typeAbout() {
-  if (i < aboutText.length) {
-    aboutEl.textContent += aboutText.charAt(i);
-    i++;
-    setTimeout(typeAbout, 35);
+const original = "Kelly Ahola Purdie";
+const replaceWith = "Hello. I am —";
+
+function typeDeleteReplace() {
+  aboutEl.textContent = original;
+  let i = original.length;
+
+  function deleteLetters() {
+    if (i >= 0) {
+      aboutEl.textContent = original.slice(0, i);
+      i--;
+      setTimeout(deleteLetters, 60);
+    } else {
+      typeNew();
+    }
   }
+
+  function typeNew(j = 0) {
+    if (j < replaceWith.length) {
+      aboutEl.textContent += replaceWith.charAt(j);
+      setTimeout(() => typeNew(j + 1), 50);
+    }
+  }
+
+  deleteLetters();
 }
 
-window.addEventListener("load", () => {
-  setTimeout(typeAbout, 400);
-});
+if (aboutEl) setTimeout(typeDeleteReplace, 600);

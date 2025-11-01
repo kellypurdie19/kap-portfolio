@@ -38,9 +38,36 @@ body {
   height: 100vh;
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* centers about text */
-  padding: 0 4vw;
+  align-items: center;
+  justify-content: center;
+  padding: 4vw;
+}
+
+/* Default = modern layout visible */
+.hero-modern { display: block; }
+.hero-arcade { display: none; }
+
+/* When arcade theme active */
+[data-theme="arcade"] .hero-modern { display: none; }
+[data-theme="arcade"] .hero-arcade { display: flex; flex-direction: column; text-align: center; gap: 1rem; }
+
+.hero-text-block {
+  text-align: right;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+}
+
+.hero-typing {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  margin-top: .5rem;
+  max-width: 500px;
+  margin-left: auto;
 }
 
 .hero-name {
@@ -48,12 +75,25 @@ body {
   bottom: 2vh;
   left: 0;
   right: 0;
-  font-size: clamp(3rem, 12vw, 12rem);
-  font-weight: 800;
   text-align: center;
-  color: rgb(97, 0, 253);
+  font-size: clamp(3rem, 12vw, 11rem);
+  font-weight: 800;
+  color: var(--text);
+  opacity: .15;
   pointer-events: none;
 }
+
+/* Arcade hero text style */
+[data-theme="arcade"] .hero-arcade h1 {
+  font-size: 3rem;
+  color: #00f6ff;
+}
+
+[data-theme="arcade"] .hero-arcade p {
+  font-size: 1.2rem;
+  opacity: .9;
+}
+
 
 .section-title {
   font-weight: 800;
@@ -75,7 +115,7 @@ body::before {
 
 /* Pinball ball */
 .pinball {
-  width: 24px;
+  width: 24px;4
   height: 24px;
   border-radius: 50%;
   background: var(--accent);
