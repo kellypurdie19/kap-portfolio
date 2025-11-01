@@ -278,7 +278,7 @@ draw();
 
 const aboutEl = document.querySelector('.about-type');
 
-const original = "Hello. I am Kelly Ahola";
+const original = "Kelly Ahola";
 const replaceWith = "Hello. I am —";
 
 function typeDeleteReplace() {
