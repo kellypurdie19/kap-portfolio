@@ -49,11 +49,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end; /* right align */
-  text-align: right;
+  text-align: Left;
 }
 .hero p {
   max-width: 550px;
-  text-align: right;
+  text-align: Left;
   margin-left: auto;
   white-space: normal;
   word-break: keep-all;
