@@ -189,11 +189,11 @@ canvas.height = window.innerHeight;
 
 let blobs = [];
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 15; i++) {
   blobs.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 180 + 50, // blob size
+    r: Math.random() * 120 + 60, // blob size
     vx: 0,
     vy: 0
   });
@@ -224,8 +224,8 @@ function draw() {
     // motion
     b.x += b.vx;
     b.y += b.vy;
-    b.vx *= 0.9;
-    b.vy *= 0.9;
+    b.vx *= 0.92;
+    b.vy *= 0.92;
 
     // wrap edges
     if (b.x < -200) b.x = canvas.width + 200;
@@ -237,8 +237,8 @@ function draw() {
     ctx.beginPath();
     const theme = document.documentElement.getAttribute("data-theme");
         ctx.fillStyle = theme === "arcade"
-        ? "rgba(0,255,255,0.15)"
-        : "rgba(0,0,0,0.10)";
+        ? "rgba(0,255,255,0.06)"
+        : "rgba(0,0,0,0.6)";
     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
     ctx.fill();
   });
