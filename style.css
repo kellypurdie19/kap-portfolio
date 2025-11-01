@@ -354,11 +354,3 @@ body {
   background: rgba(255,255,255,0.6);
 }
 
-/* Force modern hero text right */
-[data-theme="modern"] .hero-modern,
-[data-theme="modern"] .hero-text-wrapper,
-[data-theme="modern"] .hero-sub {
-  text-align: right !important;
-  margin-left: auto !important;
-  margin-right: 0 !important;
-}
