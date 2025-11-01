@@ -180,83 +180,84 @@ animatePlaceholder();
 /* ============================
    Ink Blob Cursor Interaction
 ============================ */
+/* =====================================================
+   INK BLOBS + CURSOR GLOW (Calm Mode + Deep Effect)
+===================================================== */
 
-/* ============================
-   Ink Blob Cursor Interaction
-============================ */
+// Create cursor glow follower
+const glow = document.createElement("div");
+glow.className = "cursor-glow";
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove", e => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
+
+
 const canvas = document.getElementById("inkCanvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 let blobs = [];
-
-// fewer blobs, inhale-exhale feeling
-for (let i = 0; i < 18; i++) {
+for (let i = 0; i < 30; i++) {
   blobs.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 120 + 80,
-    vx: (Math.random() - 0.5) * 0.3, // gentle drift
+    r: Math.random() * 120 + 60,
+    vx: (Math.random() - 0.5) * 0.3,
     vy: (Math.random() - 0.5) * 0.3
   });
 }
 
-let mouse = { x: -9999, y: -9999 }; // default far away so blobs always move
+let mouse = { x: -9999, y: -9999, down: false };
 
-canvas.addEventListener("mousemove", (e) => {
+canvas.addEventListener("mousemove", e => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
 
+canvas.addEventListener("mousedown", () => (mouse.down = true));
+canvas.addEventListener("mouseup", () => (mouse.down = false));
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const theme = document.documentElement.getAttribute("data-theme");
-
   blobs.forEach(b => {
-    // gravity-style drift (never fully stops)
-    b.x += b.vx;
-    b.y += b.vy;
-
-    // gentle attraction back toward center so they don't wander off to Bermuda
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    b.vx += (centerX - b.x) * 0.00005;
-    b.vy += (centerY - b.y) * 0.00005;
-
-    // mouse repulsion — soft
     let dx = b.x - mouse.x;
     let dy = b.y - mouse.y;
     let dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 150) {
-      let force = (150 - dist) / 150;
-      b.vx += dx * force * 0.01;
-      b.vy += dy * force * 0.01;
+
+    if (dist < 180) {
+      let force = (180 - dist) / 180;
+      let push = mouse.down ? 0.08 : 0.03; // stronger when pressed
+      b.vx += dx * force * push;
+      b.vy += dy * force * push;
     }
 
-    // friction
-    b.vx *= 0.995;
-    b.vy *= 0.995;
+    b.x += b.vx;
+    b.y += b.vy;
 
-    // wrap edges
-    if (b.x < -200) b.x = canvas.width + 200;
-    if (b.x > canvas.width + 200) b.x = -200;
-    if (b.y < -200) b.y = canvas.height + 200;
-    if (b.y > canvas.height + 200) b.y = -200;
+    // gentle slow down
+    b.vx *= mouse.down ? 0.92 : 0.96;
+    b.vy *= mouse.down ? 0.92 : 0.96;
 
     ctx.beginPath();
-    ctx.fillStyle = theme === "arcade"
-      ? "rgba(0,255,255,0.05)"
-      : "rgba(0,0,0,0.05)";
+    const theme = document.documentElement.getAttribute("data-theme");
+    ctx.fillStyle =
+      theme === "arcade"
+        ? "rgba(0,255,255,0.12)"
+        : "rgba(0,0,0,0.09)";
     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
     ctx.fill();
   });
 
   requestAnimationFrame(draw);
 }
-
 draw();
-
-
