@@ -97,7 +97,7 @@ body {
   text-align: center;
   font-size: clamp(3rem, 12vw, 11rem);
   font-weight: 800;
-  color: rgba(21, 3, 111, 0.18); /* stronger but still subtle */
+  color: rgba(0, 0, 0, 0.18); /* stronger but still subtle */
   pointer-events: none;
 }
 
@@ -114,7 +114,7 @@ body {
 [data-theme="modern"] .hero-name {
   white-space: nowrap;
   font-size: clamp(2rem, 9vw, 9vw); /* scale but stay one line */
-  color: rgba(255,255,255,0.20);
+  color:  rgba(21, 3, 111, 0.18);
   opacity: 0.12;
 }
 
