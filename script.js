@@ -261,7 +261,7 @@ function draw() {
     ctx.fillStyle =
       theme === "arcade"
         ? "rgba(0,255,255,0.28)"
-        : "rgba(0,0,0,0.14)";
+        : "rgba(0,0,0,0.08)";
     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
     ctx.fill();
   });
@@ -277,7 +277,7 @@ draw();
 });
 const aboutEl = document.querySelector('.about-type');
 
-const original = "Kelly Ahola Purdie";
+const original = " Hello. I am Kelly Ahola Purdie";
 const replaceWith = "Hello. I am —";
 
 function typeDeleteReplace() {

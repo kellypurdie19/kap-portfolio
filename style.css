@@ -82,6 +82,21 @@ body {
   opacity: .15;
   pointer-events: none;
 }
+@media (max-width: 700px) {
+  [data-theme="modern"] .hero-name {
+    white-space: normal;
+    line-height: .9;
+    font-size: clamp(2.2rem, 12vw, 12vw);
+  }
+}
+
+
+/* force name single line in modern mode */
+[data-theme="modern"] .hero-name {
+  white-space: nowrap;
+  font-size: clamp(2rem, 9vw, 9vw); /* scale but stay one line */
+  opacity: 0.12;
+}
 
 /* Arcade hero text style */
 [data-theme="arcade"] .hero-arcade h1 {
