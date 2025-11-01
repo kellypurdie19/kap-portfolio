@@ -65,9 +65,10 @@ body {
 }
 
 .about-type {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  min-height: 3.2rem; /* holds space so paragraph doesn't jump */
+  display: inline-block;
+  /*font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;*/
+  min-height: 2.8rem; /* holds space so paragraph doesn't jump */
 }
 
 .hero-sub {
@@ -85,16 +86,18 @@ body {
 /* Ghost name */
 .hero-name {
   position: absolute;
-  bottom: 3vh;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(5rem, 14vw, 17vw);
+  bottom: 5vh;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(5rem, 10vw, 12vw);
   font-weight: 800;
-  white-space: nowrap;
-  opacity: 0.10;
+  opacity: 0.12;
   pointer-events: none;
-  z-index: -1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 /* Mobile ghost name */
 @media (max-width: 700px) {
