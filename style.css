@@ -1,7 +1,6 @@
 /* ================================
    Base styling + Themes
 ================================ */
-
 :root {
   --bg: #ffffff;
   --text: #222;
@@ -16,29 +15,85 @@
   --silk-opacity: 1;
 }
 
-.modal-content h5, .modal-content .mt-3 {
-    color:#d94e96;
-}
-.modal-content .btn-primary{
-    background-color:#015255;
-}
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   position: relative;
+  cursor: none;
 }
 
 .section {
   padding: 120px 0;
 }
 
-/* ============================
-   ✅ CLEAN HERO SYSTEM
-============================ */
+/* ===============================
+   Modal overrides
+================================ */
+.modal-content h5,
+.modal-content .mt-3 {
+  color: #d94e96;
+}
+.modal-content .btn-primary {
+  background-color: #015255;
+}
 
-/* Base hero */
+/* ================================
+   Theme Toggle Button
+================================ */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgb(97,0,253);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  z-index: 10;
+}
+
+/* ================================
+   Dot Navigation
+================================ */
+.dot-nav {
+  position: fixed;
+  left: 2vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.dot-nav .dot {
+  width: 10px;
+  height: 10px;
+  background: #999;
+  margin: 12px 0;
+  border-radius: 50%;
+}
+.dot-nav .dot.active {
+  background: rgb(97,0,253);
+}
+
+/* ===============================
+   Pinball Button
+================================ */
+.pinball {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
+}
+
+/* ===============================
+   Hero Core Layout
+================================ */
 .hero {
   position: relative;
   height: 100vh;
@@ -50,89 +105,204 @@ body {
   text-align: center;
   padding: 0;
   box-sizing: border-box;
-  z-index: 2;
+  z-index: 5;
 }
 
-/* Base hero content hidden until mode chosen */
+/* Default hide both modes, enable via theme */
 .hero-modern,
 .hero-arcade {
   display: none;
 }
 
-/* Modern mode layout */
+/* Modern mode hero */
 [data-theme="modern"] .hero {
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
   padding: 10vh 8vw;
 }
-
 [data-theme="modern"] .hero-modern {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   max-width: 600px;
 }
-
 [data-theme="modern"] .play-tag {
-  align-self: flex-start;
   margin-top: 1.5rem;
+  align-self: flex-start;
 }
 
-/* Arcade mode layout */
+/* Arcade mode hero */
 [data-theme="arcade"] .hero {
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0;
 }
-
 [data-theme="arcade"] .hero-arcade {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   align-items: center;
 }
-
 [data-theme="arcade"] .play-tag {
-  margin-top: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1.5rem auto 0;
 }
 
-/* ============================
-   💡 Ghost Name
-============================ */
+/* Hero headings */
+.about-type {
+  display: inline-block;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  min-width: 10ch;
+  min-height: 2.8rem;
+}
 
+.hero-sub {
+  font-size: 1.1rem;
+  max-width: 450px;
+  margin: 0;
+}
+
+/* Play button */
+.play-tag {
+  margin-top: 2rem;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #000;
+  backdrop-filter: blur(12px);
+  transition: 0.2s ease;
+}
+.play-tag:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.6);
+}
+[data-theme="arcade"] .play-tag {
+  background: rgba(0,255,255,0.2);
+  border-color: rgba(255,255,255,0.25);
+  color: white;
+}
+
+/* ===============================
+   Ghost Name
+================================ */
 .hero-name {
   position: absolute;
   bottom: 5vh;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
   font-weight: 800;
-  opacity: 0.1;
+  opacity: 0.12;
   pointer-events: none;
   user-select: none;
-  white-space: nowrap;
-  text-align: center;
   width: max-content;
   font-size: clamp(5rem, 14vw, 20vw);
 }
 
-/* Mobile wrap fallback */
+[data-theme="arcade"] .hero-name {
+  color: rgba(255,255,255,0.15);
+}
+
 @media (max-width: 700px) {
   .hero-name {
     white-space: normal;
-    line-height: 0.9;
+    line-height: .9;
   }
 }
 
-/* Modern ghost — lighter & left feel */
-[data-theme="modern"] .hero-name {
-  opacity: 0.12;
+/* ===============================
+   Canvas Effects
+================================ */
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #dddddd);
+  transition: background 0.8s ease;
+}
+[data-theme="arcade"] #bg {
+  background: radial-gradient(circle at 50% 30%, rgba(0,255,255,0.25), transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(255,0,200,0.25), transparent 70%),
+              #000;
 }
 
-/* Arcade ghost — neon vibe */
-[data-theme="arcade"] .hero-name {
-  color: rgba(255,255,255,0.2);
+#inkCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* ===============================
+   Cursor Glow
+================================ */
+.cursor-glow {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  backdrop-filter: blur(4px);
+  background: rgba(0,255,255,0.35);
+  box-shadow:
+    0 0 8px rgba(0,255,255,0.8),
+    0 0 15px rgba(255,0,200,0.5);
+  transition: transform 0.07s ease-out;
+}
+
+/* ===============================
+   Project Cards
+================================ */
+.proj-card {
+  perspective: 800px;
+  border: none;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+.proj-card .card-inner {
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s ease;
+}
+
+/* Modern mode frosted cards */
+[data-theme="modern"] .proj-card .card-inner {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Arcade glow cards */
+[data-theme="arcade"] .proj-card .card-inner {
+  background: rgba(30,30,30,0.6);
+  box-shadow:
+    0 0 12px rgba(255,0,200,0.7),
+    0 0 24px rgba(0,255,255,0.5);
+  border: 1px solid rgba(255,0,200,0.4);
+}
+
+.proj-card:hover {
+  transform: translateY(-6px);
+}
+[data-theme="arcade"] .proj-card:hover .card-inner {
+  transform: scale(1.03) rotateX(6deg) rotateY(-6deg);
+  box-shadow:
+    0 0 20px rgba(255,0,200,0.9),
+    0 0 40px rgba(0,255,255,0.6);
 }
