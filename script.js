@@ -237,9 +237,9 @@ function draw() {
     let dy = b.y - mouse.y;
     let dist = Math.sqrt(dx * dx + dy * dy);
 
-    if (dist < 180) {
-      let force = (180 - dist) / 180;
-      let push = mouse.down ? 0.08 : 0.03; // stronger when pressed
+    if (dist < 200) {
+      let force = (200 - dist) / 200;
+      let push = mouse.down ? 0.12 : 0.04; // stronger when pressed
       b.vx += dx * force * push;
       b.vy += dy * force * push;
     }

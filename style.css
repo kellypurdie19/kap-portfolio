@@ -42,7 +42,7 @@ body::before {
   background: radial-gradient(circle at 50% 50%, var(--accent)22 0%, transparent 70%);
   opacity: var(--silk-opacity);
   mix-blend-mode: screen;
-  z-index: -1;
+  z-index: -2;
   filter: blur(90px);
 }
 
@@ -171,9 +171,7 @@ body::before {
 [data-theme="arcade"] #bg {
   background: radial-gradient(circle at 30% 30%, #ff00c8, #00f6ff);
 }
-window.addEventListener("load", () => {
-    
-})
+
 /* Ink Simulation Canvas */
 #inkCanvas {
   position: fixed;
@@ -181,12 +179,14 @@ window.addEventListener("load", () => {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2; /* behind everything */
+  z-index: -5; /* behind everything */
   background: #ffffff; /* fallback */
+  pointer-events: none;
+
 }
 
 [data-theme="arcade"] #inkCanvas {
-  background: #000000;
+  background: #161f01;
 }
 
 /* =====================================================
