@@ -44,7 +44,17 @@ body {
 }
 
 /* Default = modern layout visible */
-.hero-modern { display: block; }
+.hero-modern {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* right align */
+  text-align: right;
+}
+.hero-modern p {
+  max-width: 420px;
+  white-space: pre-line;
+}
+
 .hero-arcade { display: none; }
 
 /* When arcade theme active */
@@ -78,8 +88,8 @@ body {
   text-align: center;
   font-size: clamp(3rem, 12vw, 11rem);
   font-weight: 800;
-  color: var(--text);
-  opacity: .15;
+  color: rgba(0,0,0,0.12);
+  opacity: 1; /* reset so only the rgba controls transparency */
   pointer-events: none;
 }
 @media (max-width: 700px) {
