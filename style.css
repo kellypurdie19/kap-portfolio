@@ -379,6 +379,13 @@ body {
   gap: 1.2rem;
   max-width: 600px;
 }
+[data-theme="modern"] .hero {
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding: 8rem 0 0 8vw;
+}
+
 
 [data-theme="modern"] .hero-modern {
   display: flex;
@@ -482,4 +489,13 @@ body {
 [data-theme="arcade"] .play-tag {
   margin-left: auto;
   margin-right: auto;
+}
+/* Force ghost name to stretch full width only in modern mode */
+[data-theme="modern"] .hero-name {
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: none;
+  width: 100vw;
+  white-space: nowrap;
 }
