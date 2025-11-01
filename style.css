@@ -15,7 +15,7 @@
   --accent: #ff009d;
   --silk-opacity: 1;
 }
-[data-theme="arcade"].modal-content{
+[data-theme="arcade"].modal-content h5{
     color:#ff009d;
 }
 body {
