@@ -39,6 +39,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  text-align: right;
   justify-content: center;
   padding: 4vw;
 }
@@ -50,6 +51,14 @@ body {
   align-items: flex-end; /* right align */
   text-align: right;
 }
+.hero p {
+  max-width: 550px;
+  text-align: right;
+  margin-left: auto;
+  white-space: normal;
+  word-break: keep-all;
+}
+
 .hero-modern p {
   max-width: 420px;
   white-space: pre-line;
@@ -88,10 +97,10 @@ body {
   text-align: center;
   font-size: clamp(3rem, 12vw, 11rem);
   font-weight: 800;
-  color: rgba(0,0,0,0.12);
-  opacity: 1; /* reset so only the rgba controls transparency */
+  color: rgba(0,0,0,0.18); /* stronger but still subtle */
   pointer-events: none;
 }
+
 @media (max-width: 700px) {
   [data-theme="modern"] .hero-name {
     white-space: normal;
@@ -105,6 +114,7 @@ body {
 [data-theme="modern"] .hero-name {
   white-space: nowrap;
   font-size: clamp(2rem, 9vw, 9vw); /* scale but stay one line */
+  color: rgba(255,255,255,0.20);
   opacity: 0.12;
 }
 
@@ -323,18 +333,25 @@ body {
 .play-tag {
   margin-top: 2rem;
   display: inline-block;
-  font-size: 1rem;
-  padding: 10px 20px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  cursor: pointer;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #000;
+  backdrop-filter: blur(12px);
   transition: 0.2s ease;
 }
 
-.play-tag:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
+[data-theme="arcade"] .play-tag {
+  background: rgba(0,255,255,0.2);
+  border-color: rgba(255,255,255,0.25);
+  color: white;
 }
+
+.play-tag:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.6);
+}
+
