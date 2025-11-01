@@ -171,7 +171,9 @@ body::before {
 [data-theme="arcade"] #bg {
   background: radial-gradient(circle at 30% 30%, #ff00c8, #00f6ff);
 }
-
+window.addEventListener("load", () => {
+    
+})
 /* Ink Simulation Canvas */
 #inkCanvas {
   position: fixed;

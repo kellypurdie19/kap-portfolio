@@ -176,6 +176,9 @@ function animatePlaceholder() {
 
 // Start the animation when page loads
 animatePlaceholder();
+window.addEventListener("load", () => {
+  // blobs + glow + draw loop here
+
 
 /* ============================
    Ink Blob Cursor Interaction
@@ -261,3 +264,4 @@ function draw() {
   requestAnimationFrame(draw);
 }
 draw();
+});
