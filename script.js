@@ -276,7 +276,7 @@ draw();
 
 });
 const aboutEl = document.querySelector('.about-type');
-const aboutText = "Hi, I'm Kelly — a creative front-end designer building playful, intuitive web experiences.";
+const aboutText = "Hi there I am — a creative front-end designer building playful, intuitive web experiences.";
 
 let i = 0;
 function typeAbout() {
