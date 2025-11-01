@@ -34,560 +34,105 @@ body {
   padding: 120px 0;
 }
 
-/* =========================
-   ✅ CLEAN HERO STYLES
-========================= */
+/* ============================
+   ✅ CLEAN HERO SYSTEM
+============================ */
 
+/* Base hero */
 .hero {
   position: relative;
   height: 100vh;
-  padding: 10vh 8vw;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  z-index: 2;
-}
-
-.hero * {
-  position: relative;
-  z-index: 10;
-}
-
-/* --- Modern (default) --- */
-.hero-modern {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  text-align: left;
-}
-
-.about-type {
-  display: inline-block;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
-  font-weight: 800;
-  min-width: 10ch; /* holds space when deleting letters */
-  min-height: 2.8rem; /* prevents jumping */
-}
-
-.hero-sub {
-  font-size: 1.15rem;
-  max-width: 450px;
-  margin: 0;
-}
-
-/* Button in modern = left */
-[data-theme="modern"] .play-tag {
-  margin-top: 1.5rem;
-  align-self: flex-start;
-}
-
-/* --- Ghost Name --- */
-.hero-name {
-  position: absolute;
-  bottom: 5vh;
-  width: 100%;
-  text-align: center;
-  white-space: nowrap;
-  font-size: clamp(5rem, 15vw, 18vw);
-  font-weight: 800;
-  opacity: 0.12;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Mobile wrap */
-@media (max-width: 700px) {
-  .hero-name {
-    white-space: normal;
-    line-height: .9;
-  }
-}
-
-/* --- Arcade overrides --- */
-[data-theme="arcade"] .hero {
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
-[data-theme="arcade"] .hero-modern {
+/* Base hero content hidden until mode chosen */
+.hero-modern,
+.hero-arcade {
   display: none;
 }
 
-[data-theme="arcade"] .hero-arcade {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+/* Modern mode layout */
+[data-theme="modern"] .hero {
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding: 10vh 8vw;
 }
 
-[data-theme="arcade"] .play-tag {
-  margin: 1.5rem auto 0;
-}
-
-[data-theme="arcade"] .hero-name {
-  color: rgba(255,255,255,0.18);
-}
-
-
-.section-title {
-  font-weight: 800;
-  font-size: 2.6rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Silk Background (Canvas overlay look) */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, var(--accent)22 0%, transparent 70%);
-  opacity: var(--silk-opacity);
-  mix-blend-mode: screen;
-  z-index: -2;
-  filter: blur(90px);
-}
-
-/* Pinball ball */
-.pinball {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--accent);
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  cursor: pointer;
-  transition: transform 0.1s ease-out;
-}
-
-/* Theme toggle button */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgb(97,0,253);
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  z-index: 10;
-}
-
-/* Dot navigation */
-.dot-nav {
-  position: fixed;
-  left: 2vw;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.dot-nav .dot {
-  width: 10px;
-  height: 10px;
-  background: #999;
-  margin: 12px 0;
-  border-radius: 50%;
-}
-.dot-nav .dot.active {
-  background: rgb(97,0,253);
-}
-
-/* Project cards */
-.grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.proj-card {
-  padding: 60px 20px;
-  background: rgba(255,255,255,0.07);
-  border-radius: 12px;
-  text-align: center;
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-/* ===============================
-   🌟 Project Card Hybrid Styles
-=============================== */
-
-/* Base card styling */
-.proj-card {
-  perspective: 800px;
-  border: none;
-  background: transparent;
-  transition: transform 0.3s ease;
-}
-
-/* Card inner content */
-.proj-card .card-inner {
-  padding: 2rem;
-  border-radius: 16px;
-  transition: all 0.35s ease;
-  backdrop-filter: blur(12px);
-}
-
-/* Modern mode — frosted glass */
-[data-theme="modern"] .proj-card .card-inner {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-/* Arcade mode — neon glow */
-[data-theme="arcade"] .proj-card .card-inner {
-  background: rgba(30, 30, 30, 0.6);
-  box-shadow:
-    0 0 12px rgba(255, 0, 200, 0.7),
-    0 0 24px rgba(0, 255, 255, 0.5);
-  border: 1px solid rgba(255, 0, 200, 0.4);
-}
-
-/* Hover effects */
-.proj-card:hover {
-  transform: translateY(-6px);
-}
-
-[data-theme="arcade"] .proj-card:hover .card-inner {
-  transform: scale(1.03) rotateX(6deg) rotateY(-6deg);
-  box-shadow:
-    0 0 20px rgba(255,0,200,0.9),
-    0 0 40px rgba(0,255,255,0.6);
-}
-/* ===============================
-   🌈 Liquid Animated Background
-=============================== */
-#bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(circle at 30% 30%, #ffffff, #dddddd);
-  transition: background 0.8s ease;
-}
-
-[data-theme="arcade"] #bg {
-  background: radial-gradient(circle at 30% 30%, #ff00c8, #00f6ff);
-}
-
-/* Ink Simulation Canvas */
-#inkCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2; /* behind everything */
-  background: transparent; /* fallback */
-  pointer-events: none;
-
-}
-
-[data-theme="arcade"] #inkCanvas {
-  /*background: #2e00fd;*/
-  background: transparent;
-}
-/* TRON glow sky */
-[data-theme="arcade"] #bg {
-  background: radial-gradient(circle at 50% 30%, rgba(0,255,255,0.25), transparent 60%),
-              radial-gradient(circle at 70% 70%, rgba(255,0,200,0.25), transparent 70%),
-              #000000;
-}
-
-/* =====================================================
-   CURSOR GLOW
-===================================================== */
-body {
-  cursor: none; /* hide system cursor */
-}
-
-.cursor-glow {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  pointer-events: none;
-  position: fixed;
-  z-index: 9999;
-  mix-blend-mode: screen;
-  backdrop-filter: blur(4px);
-  background: rgba(0,255,255,0.35);
-  box-shadow: 
-    0 0 8px rgba(0,255,255,0.8),
-    0 0 15px rgba(255,0,200,0.5);
-  transition: transform 0.07s ease-out;
-}
-
-
-[data-theme="arcade"] .cursor-glow {
-  background: rgba(0,255,255,0.5);
-  mix-blend-mode: screen;
-}
-[data-theme="arcade"] #inkCanvas {
-  filter: drop-shadow(0 0 15px rgba(0,255,255,0.35))
-          drop-shadow(0 0 25px rgba(255,0,0,0.25));
-}
-.play-tag {
-  margin-top: 2rem;
-  display: inline-block;
-  padding: 12px 22px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.4);
-  border: 1px solid rgba(0,0,0,0.08);
-  color: #000;
-  backdrop-filter: blur(12px);
-  transition: 0.2s ease;
-}
-
-[data-theme="arcade"] .play-tag {
-  background: rgba(0,255,255,0.2);
-  border-color: rgba(255,255,255,0.25);
-  color: white;
-}
-
-.play-tag:hover {
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.6);
-}
-
-/* =====================================================
-   HERO CORE
-=====================================================*/
-
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* ✅ center horizontally */
-  justify-content: center; /* ✅ center vertically */
-  text-align: center; /* ✅ center text */
-  padding: 0;
-  z-index: 2;
-}
-
-
-/* MODERN MODE =======================================*/
-
-.hero-modern {
+[data-theme="modern"] .hero-modern {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   max-width: 600px;
 }
-[data-theme="modern"] .hero {
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: left;
-  padding: 8rem 0 0 8vw;
+
+[data-theme="modern"] .play-tag {
+  align-self: flex-start;
+  margin-top: 1.5rem;
 }
 
-
-[data-theme="modern"] .hero-modern {
-  display: flex;
-}
-
-[data-theme="modern"] .hero-arcade {
-  display: none;
-}
-
-.hero h1.about-type {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 800;
-  margin: 0;
-}
-.hero-arcade h1 {
-  white-space: nowrap;
-}
-
-.hero-sub {
-  font-size: 1.1rem;
-  max-width: 450px;
-}
-
-
-/* ARCADE MODE =======================================*/
-
+/* Arcade mode layout */
 [data-theme="arcade"] .hero {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 0;
-}
-
-.hero-arcade {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+  padding: 0;
 }
 
 [data-theme="arcade"] .hero-arcade {
   display: flex;
-}
-
-[data-theme="arcade"] .hero-modern {
-  display: none;
-}
-
-/* HERO BUTTONS */
-.play-tag {
-  margin-top: 1.5rem;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
 }
 
 [data-theme="arcade"] .play-tag {
-  margin: 1.2rem auto 0;
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* BIG NAME ==========================================*/
+/* ============================
+   💡 Ghost Name
+============================ */
 
-/* Default (arcade mode) — center */
 .hero-name {
   position: absolute;
   bottom: 5vh;
   left: 50%;
   transform: translateX(-50%);
-  font-size: clamp(4rem, 10vw, 14rem);
-  opacity: 0.07;
+  font-weight: 800;
+  opacity: 0.1;
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
-}
-
-
-/* Modern mode — left align */
-[data-theme="modern"] .hero-name {
-  left: 0;
-  transform: none;
-  padding-left: 8vw; /* match hero padding */
-  text-align: left;
-}
-.hero-modern .hero-text-wrapper {
-  text-align: left;
-  align-items: flex-start;
-  margin-left: -5vw; /* tweak if needed */
-}
-
-
-/* Arcade name — slightly smaller and wraps softly */
-[data-theme="arcade"] .hero-name {
-  font-size: clamp(4rem, 11vw, 13vw);
-  white-space: normal;
-  line-height: 0.9;
-  opacity: 0.08; /* arcade = subtle */
-}
-
-
-[data-theme="arcade"] .hero-name {
-  color: rgba(255,255,255,0.2);
-}
-
-
-/* Arcade centered hero */
-[data-theme="arcade"] .hero {
-  align-items: center;
   text-align: center;
-  justify-content: center;
-}
-
-/* Arcade button centered */
-[data-theme="arcade"] .play-tag {
-  margin-left: auto;
-  margin-right: auto;
-}
-/* Force ghost name to stretch full width only in modern mode */
-[data-theme="modern"] .hero-name {
-  left: 0;
-  right: 0;
-  text-align: center;
-  transform: none;
-  width: 100vw;
-  white-space: nowrap;
-}
-/* Base hero layout */
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center;
-  z-index: 5;
-}
-
-/* Modern mode — left align */
-[data-theme="modern"] .hero {
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: left;
-  padding: 10vh 8vw;
-}
-
-[data-theme="modern"] .hero-modern {
-  display: block;
-}
-
-[data-theme="modern"] .hero-arcade {
-  display: none;
-}
-
-/* Arcade mode — center hero text */
-[data-theme="arcade"] .hero {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-[data-theme="arcade"] .hero-modern {
-  display: none;
-}
-
-[data-theme="arcade"] .hero-arcade {
-  display: block;
-}
-/* --- FORCE HERO LAYOUT CORRECT --- */
-
-/* Make hero always span full width and center contents */
-.hero {
-  width: 100vw;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* Ghost name — perfectly centered and SAME in arcade + modern */
-/* Fix ghost name centering */
-.hero-name {
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center !important;
   width: max-content;
-}
-
-/* Modern hero text left, but name stays centered */
-[data-theme="modern"] .hero {
-  padding: 8rem 8vw 0;
-  align-items: flex-start;
-  text-align: left;
-}
-
-/* Arcade hero text center */
-[data-theme="arcade"] .hero {
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* Arcade mode — keep it on one line and centered */
-[data-theme="arcade"] .hero-name {
-  white-space: nowrap !important;
   font-size: clamp(5rem, 14vw, 20vw);
 }
 
+/* Mobile wrap fallback */
+@media (max-width: 700px) {
+  .hero-name {
+    white-space: normal;
+    line-height: 0.9;
+  }
+}
+
+/* Modern ghost — lighter & left feel */
+[data-theme="modern"] .hero-name {
+  opacity: 0.12;
+}
+
+/* Arcade ghost — neon vibe */
+[data-theme="arcade"] .hero-name {
+  color: rgba(255,255,255,0.2);
+}
