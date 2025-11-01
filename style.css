@@ -48,7 +48,10 @@ body {
   padding: 10vh 8vw;
   z-index: 2;
 }
-
+.hero * {
+  z-index: 10;
+  position: relative;
+}
 
 
 /* Modern Layout */
@@ -64,6 +67,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.hero-modern, .hero-arcade, .hero-text-wrapper {
+  position: relative;
+  z-index: 10;
 }
 
 .about-type {
@@ -88,16 +95,15 @@ body {
 /* Ghost name */
 .hero-name {
   position: absolute;
-  bottom: 5vh;
+  bottom: 4vh;
   width: 100%;
   text-align: center;
-  font-size: clamp(5rem, 10vw, 12vw);
+  font-size: clamp(5rem, 14vw, 20vw);
   font-weight: 800;
   opacity: 0.12;
   pointer-events: none;
+  z-index: 1;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 
@@ -393,6 +399,7 @@ body {
 
 /* Modern hero positions text left */
 [data-theme="modern"] .hero {
+  justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
   padding: 8rem 0 0 8vw;

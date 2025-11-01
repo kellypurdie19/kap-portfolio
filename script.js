@@ -254,7 +254,9 @@ function draw() {
 
     // ✅ TRON glowing plasma mode
     ctx.globalCompositeOperation = "lighter";
+    const theme = document.documentElement.getAttribute("data-theme");
     ctx.shadowBlur = theme === "arcade" ? 30 : 0;
+
     ctx.shadowColor = theme === "arcade" ? "cyan" : "transparent";
 
     ctx.beginPath();
