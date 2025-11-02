@@ -1,1 +1,123 @@
-/* Only .hero-... selectors */
+/* This isolates ALL hero layout + mode toggling. */
+
+/* ================================
+   HERO SECTION
+================================ */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  z-index: 2;
+}
+
+/* Modern mode text */
+.hero-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
+}
+
+/* Arcade mode text */
+.hero-arcade {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Typing headline */
+.about-type {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  display: inline-block;
+  min-width: 10ch;   /* holds text width during delete */
+  min-height: 2.8rem; /* prevents jump */
+}
+
+/* Sub text */
+.hero-sub {
+  font-size: 1.15rem;
+  max-width: 450px;
+}
+
+/* Play button spacing */
+.hero .play-tag {
+  margin-top: 1.5rem;
+}
+
+/* BIG NAME GHOST TEXT */
+.hero-name {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: clamp(5rem, 14vw, 20vw);
+  font-weight: 800;
+  opacity: 0.08;
+  pointer-events: none;
+  white-space: nowrap;
+  width: max-content;
+}
+
+/* Mobile adjustments */
+@media (max-width: 700px) {
+  .hero-name {
+    font-size: clamp(4rem, 13vw, 16vw);
+    white-space: normal;
+    line-height: .9;
+  }
+}
+
+/* ================================
+   MODE OVERRIDES
+================================ */
+
+/* ------ MODERN MODE ------ */
+[data-theme="modern"] .hero {
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding: 10vh 8vw;
+}
+
+[data-theme="modern"] .hero-modern {
+  display: flex;
+}
+[data-theme="modern"] .hero-arcade {
+  display: none;
+}
+
+/* Name stays centered in modern */
+[data-theme="modern"] .hero-name {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ------ ARCADE MODE ------ */
+[data-theme="arcade"] .hero {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+
+[data-theme="arcade"] .hero-modern {
+  display: none;
+}
+[data-theme="arcade"] .hero-arcade {
+  display: flex;
+}
+
+[data-theme="arcade"] .hero-name {
+  color: rgba(255,255,255,0.22);
+  white-space: nowrap;
+}

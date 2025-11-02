@@ -1,0 +1,56 @@
+/* Cursor glow + ink magic into its own module */
+
+/* ================================
+   CURSOR + INK EFFECTS
+================================ */
+
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Glow cursor follower */
+.cursor-glow {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+  mix-blend-mode: screen;
+  transition: transform 0.07s ease-out;
+  
+  /* Modern default glow */
+  background: rgba(0,255,255,0.35);
+  box-shadow:
+    0 0 8px rgba(0,255,255,0.8),
+    0 0 15px rgba(255,0,200,0.5);
+}
+
+/* Arcade glow style */
+[data-theme="arcade"] .cursor-glow {
+  background: rgba(0,255,255,0.5);
+  box-shadow:
+    0 0 10px rgba(0,255,255,0.9),
+    0 0 22px rgba(255,0,0,0.7);
+}
+
+/* Ink canvas */
+#inkCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -2;
+  background: transparent;
+}
+
+/* Arcade ink glow enhancement */
+[data-theme="arcade"] #inkCanvas {
+  filter:
+    drop-shadow(0 0 15px rgba(0,255,255,0.35))
+    drop-shadow(0 0 25px rgba(255,0,0,0.25));
+}

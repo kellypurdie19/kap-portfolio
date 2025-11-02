@@ -1,0 +1,47 @@
+
+/* Play button its glow-up. 😎*/
+
+/* ================================
+   BUTTONS
+================================ */
+
+/* Base play button */
+.play-tag {
+  margin-top: 2rem;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: inline-block;
+  
+  /* ✅ Modern default (soft glass) */
+  background: rgba(255,255,255,0.4);
+  color: #000;
+}
+
+/* Hover */
+.play-tag:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.65);
+}
+
+/* ✅ Arcade theme button */
+[data-theme="arcade"] .play-tag {
+  background: rgba(0,255,255,0.2);
+  border-color: rgba(255,255,255,0.25);
+  color: white;
+  text-shadow: 0 0 6px rgba(0,255,255,0.4);
+}
+
+/* Arcade hover */
+[data-theme="arcade"] .play-tag:hover {
+  transform: translateY(-2px);
+  background: rgba(0,255,255,0.35);
+  box-shadow:
+    0 0 10px rgba(0,255,255,0.6),
+    0 0 18px rgba(255,0,200,0.5);
+}

@@ -1,0 +1,60 @@
+/* Background glow, ink blobs, arcade gradients, etc. */
+
+/* ================================
+   VISUAL EFFECTS — BACKGROUND & GLOW
+================================ */
+
+/* Background gradient layer */
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+
+  background: radial-gradient(circle at 30% 30%, #ffffff, #dddddd);
+  transition: background 0.8s ease;
+}
+
+/* Arcade background glow */
+[data-theme="arcade"] #bg {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(0,255,255,0.25), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(255,0,200,0.25), transparent 70%),
+    #000000;
+}
+
+/* Silk / bloom overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background: radial-gradient(circle at 50% 50%, var(--accent)22 0%, transparent 70%);
+  opacity: var(--silk-opacity);
+  mix-blend-mode: screen;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+/* INK CANVAS - (js scribbles use this) */
+#inkCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Additional arcade glow feel */
+[data-theme="arcade"] #inkCanvas {
+  filter:
+    drop-shadow(0 0 15px rgba(0,255,255,0.4))
+    drop-shadow(0 0 30px rgba(255,0,0,0.3));
+}
