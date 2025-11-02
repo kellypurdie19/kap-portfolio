@@ -1,0 +1,28 @@
+/* Neon marble behaves and looks right */
+/* ===============================
+   Pinball Scroll Button
+================================ */
+
+.pinball {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
+  z-index: 10;
+}
+
+.pinball:hover {
+  transform: scale(1.2);
+}
+
+/* Arcade glow */
+[data-theme="arcade"] .pinball {
+  box-shadow:
+    0 0 10px rgba(0,255,255,0.6),
+    0 0 20px rgba(255,0,200,0.4);
+}
