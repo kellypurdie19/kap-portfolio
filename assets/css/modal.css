@@ -1,0 +1,68 @@
+/*Guess-the-Number game modal + shared modal styling*/
+
+/* ================================
+   Modal Styles
+   Handles game modal + shared modals
+================================ */
+
+/* Modal Container */
+.modal-content {
+  padding: 2rem;
+  border-radius: 12px;
+  border: none;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* Title */
+.modal-content h5 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Inputs */
+.modal-content input {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.15);
+  font-size: 1rem;
+}
+
+/* Buttons inside modal */
+.modal-content .btn {
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+/* Success/Error colors (fallback) */
+.modal-content .btn-success {
+  background: #4caf50;
+  border: none;
+}
+
+.modal-content .btn-danger {
+  background: #e54949;
+  border: none;
+}
+
+/* Arcade Mode */
+[data-theme="arcade"] .modal-content {
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 0, 200, 0.4);
+  box-shadow:
+    0 0 12px rgba(255, 0, 200, 0.7),
+    0 0 28px rgba(0, 255, 255, 0.5);
+  color: white;
+}
+
+[data-theme="arcade"] .modal-content input {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid cyan;
+}
+
+[data-theme="arcade"] .btn-primary {
+  background: #ff00c8;
+  border: none;
+}

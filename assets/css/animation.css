@@ -1,0 +1,60 @@
+/*  */
+
+/* =====================================================
+   Animations & Microinteractions
+===================================================== */
+
+/* -----------------------------------------
+   Typing Effect Helpers (no JS animations here —
+   just spacing so layout stays stable)
+----------------------------------------- */
+
+.about-type {
+  display: inline-block;
+  min-width: 12ch;  /* reserve space while deleting */
+  min-height: 2.8rem;
+  font-weight: 800;
+}
+
+/* -----------------------------------------
+   Fade Up (reusable)
+----------------------------------------- */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -----------------------------------------
+   Fade In
+----------------------------------------- */
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.fade-in.show {
+  opacity: 1;
+}
+
+/* -----------------------------------------
+   Subtle scale pop (buttons/cards)
+----------------------------------------- */
+
+.scale-in {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.scale-in.show {
+  transform: scale(1);
+  opacity: 1;
+}

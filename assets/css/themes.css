@@ -1,0 +1,81 @@
+/*one place to control the entire mood of your site. Neon Magic. holding color vars, arcade glow overrides, utility theme classes */
+
+/* =====================================================
+   Theme Variables + Styles
+   Modern (default) & Arcade neon mode
+===================================================== */
+
+/* ---------- DEFAULT (Modern) ---------- */
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --accent: #0ea5e9;
+  --glass: rgba(255,255,255,0.6);
+  --silk-opacity: 0.8;
+  --ghost-name: rgba(21, 3, 111, 0.18);
+}
+
+/* Page background */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Glassmorphism default card/button background */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+}
+
+/* Ghost name default */
+.hero-name {
+  color: var(--ghost-name);
+}
+
+/* ---------- ARCADE MODE ---------- */
+[data-theme="arcade"] {
+  --bg: #000012;
+  --text: #f0f8ff;
+  --accent: #ff00c8;
+  --ghost-name: rgba(255,255,255,0.2);
+}
+
+/* Full-screen glow fields */
+[data-theme="arcade"] body::before {
+  background: radial-gradient(circle at 50% 50%, var(--accent) 0%, transparent 70%);
+  opacity: 1;
+}
+
+/* Arcade body background gradient */
+[data-theme="arcade"] body {
+  background: radial-gradient(circle at 50% 30%, rgba(0,255,255,0.2), transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(255,0,200,0.25), transparent 70%),
+              #000;
+}
+
+/* Arcade ghost text glow */
+[data-theme="arcade"] .hero-name {
+  color: var(--ghost-name);
+  text-shadow:
+    0 0 12px rgba(0,255,255,0.6),
+    0 0 18px rgba(255,0,200,0.4);
+}
+
+/* Arcade buttons glow */
+[data-theme="arcade"] .play-tag {
+  background: rgba(0,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0,255,255,0.8);
+}
+
+[data-theme="arcade"] .play-tag:hover {
+  box-shadow:
+    0 0 10px cyan,
+    0 0 18px #ff00c8;
+}
+
+/* Accent utility */
+.accent {
+  color: var(--accent);
+}

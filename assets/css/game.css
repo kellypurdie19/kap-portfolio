@@ -1,0 +1,63 @@
+/* Styles only for your modal game. Only style your Guess-The-Number game inside the modal */
+
+/* =====================================================
+   Game / Modal Mini-App Styles
+===================================================== */
+
+/* Center content nicely inside modal */
+#gameModal .modal-content {
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  border-radius: 14px;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Headline */
+#gameModal h5 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text);
+}
+
+/* Input */
+#gameModal input {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+/* Submit button */
+#gameModal .btn-primary {
+  margin-top: 0.8rem;
+  font-weight: 600;
+  padding: 0.6rem;
+}
+
+/* Result text */
+#result {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  min-height: 2.2rem;
+}
+
+/* Arcade glow mode */
+[data-theme="arcade"] #gameModal .modal-content {
+  background: rgba(0,0,0,0.65);
+  border: 1px solid rgba(0,255,255,0.3);
+  box-shadow:
+    0 0 10px rgba(0,255,255,0.4),
+    0 0 18px rgba(255,0,200,0.2);
+}
+
+[data-theme="arcade"] #gameModal h5 {
+  color: #00f6ff;
+}
+
+[data-theme="arcade"] #result {
+  text-shadow: 0 0 6px cyan;
+}
