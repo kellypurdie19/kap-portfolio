@@ -1,0 +1,26 @@
+/* Global foundation — vars, fonts, body, reset, Colors, fonts, variables, global body styles*/
+
+/* Colors, fonts, themes */
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --accent: #0ea5e9;
+  --silk-opacity: 0.8;
+}
+
+[data-theme="arcade"] {
+  --bg: #000012;
+  --text: #f0f8ff;
+  --accent: #ff0080;
+  --silk-opacity: 1;
+}
+
+/* Global body resets */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  cursor: none;
+}

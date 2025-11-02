@@ -1,0 +1,35 @@
+/*  Sections, spacing, containers, utility layout stuff. */
+
+/* Page Sections */
+.section {
+  padding: 120px 0;
+}
+
+/* Pinball Ball */
+.pinball {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
+  z-index: 20;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgb(97,0,253);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  z-index: 20;
+}
