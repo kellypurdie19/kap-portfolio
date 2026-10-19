@@ -1,268 +1,222 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="modern">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kelly Ahola-Purdie — Web Design for Small Businesses</title>
-  <meta name="description" content="Kelly Ahola-Purdie is a graphic and web designer who helps small businesses fix, update, and build their WordPress sites, without the overwhelm.">
-
-  <!-- 🧠 Fonts: Modern (Inter) + Chic serif accent (Playfair) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-
-  <!-- 🧠 Bootstrap (for fast layout + UI) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
-
-  <link rel="stylesheet" href="assets/css/style.css"><!-- 🧠 --> 
-  <link rel="stylesheet" href="assets/css/base.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/layout.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/hero.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/nav.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/modal.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/arcade.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/animation.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/buttons.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/modern.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/canvas.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/cards.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/cursor.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/effects.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/game.css"><!-- 🧠 -->
-  <link rel="stylesheet" href="assets/css/pinball.css">
-  <link rel="stylesheet" href="assets/css/sections.css">
-
-
-
-
+  <title>kelly.ahola — Web design for small businesses</title>
+  <meta name="description" content="Kelly Ahola-Purdie fixes, updates, and builds WordPress and Shopify sites for small businesses, so your website finally feels finished, without the overwhelm.">
+  <meta property="og:title" content="kelly.ahola — I bring the chaos into focus">
+  <meta property="og:description" content="Graphic and web design for small businesses. Clear prices, no surprises.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-<canvas id="inkCanvas"></canvas>
 
+<a class="skip-link" href="#main">Skip to content</a>
 
+<!-- Glowing path that draws itself as you scroll -->
+<svg class="glow-path" aria-hidden="true" viewBox="0 0 100 1000" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6100FD"/>
+      <stop offset="0.5" stop-color="#F2479B"/>
+      <stop offset="1" stop-color="#14B8B0"/>
+    </linearGradient>
+  </defs>
+  <path class="glow-path-track" d="M 70 0 C 70 90, 12 120, 12 220 S 88 360, 88 470 S 10 600, 12 720 S 70 880, 50 1000" vector-effect="non-scaling-stroke"/>
+  <path class="glow-path-line" id="glowLine" d="M 70 0 C 70 90, 12 120, 12 220 S 88 360, 88 470 S 10 600, 12 720 S 70 880, 50 1000" pathLength="1" vector-effect="non-scaling-stroke"/>
+</svg>
 
-<!-- ===========================
-     Pinball Ball
-     =========================== -->
-<button id="pinball" class="pinball" type="button" aria-label="Back to top" title="Back to top">&uarr;</button>
+<!-- Side index: lights up the section you're in -->
+<nav class="side-index" aria-label="Page sections">
+  <a href="#hello" data-section="hello"><span class="dot"></span>Hello</a>
+  <a href="#services" data-section="services"><span class="dot"></span>Services</a>
+  <a href="#work" data-section="work"><span class="dot"></span>Work</a>
+  <a href="#process" data-section="process"><span class="dot"></span>Process</a>
+  <a href="#contact" data-section="contact"><span class="dot"></span>Contact</a>
+  <a href="#play" data-section="play"><span class="dot"></span>Play</a>
+</nav>
 
-<!-- ===========================
-     Scroll Dot Navigation
-     =========================== -->
-<div class="dot-nav">
-  <div class="dot active"></div>
-  <div class="dot"></div>
-  <div class="dot"></div>
-</div>
-
-<section class="hero">
-
-  <!-- Modern Mode -->
-  <div class="hero-modern">
-    <div class="hero-text-wrapper">
-      <h1 class="about-type"></h1>
-      <p class="hero-sub">
-        I'm Kelly, a graphic and web designer who helps small businesses fix, update, and build their WordPress sites, without the overwhelm.
-      </p>
-
-      <div class="hero-actions">
-        <a class="play-tag play-tag-primary" href="#contact">Book a Free 15-Minute Call</a>
-        <a class="play-tag" href="#work">See My Work</a>
-      </div>
-    </div>
+<header class="topbar">
+  <a href="#hello" class="logo">kelly<span>.</span>ahola</a>
+  <div class="topbar-right">
+    <nav class="top-links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm">Let's talk</a>
   </div>
+</header>
 
-  <!-- Arcade Mode -->
-  <div class="hero-arcade">
-    <h1>Websites that finally feel finished.</h1>
-    <p class="hero-sub">
-      I'm Kelly, a graphic and web designer who helps small businesses fix, update, and build their WordPress sites, without the overwhelm.
-    </p>
+<main id="main">
 
-    <div class="hero-actions">
-      <a class="play-tag play-tag-primary" href="#contact">Book a Free 15-Minute Call</a>
-      <a class="play-tag" href="#work">See My Work</a>
-    </div>
-  </div>
-
-  <!-- Ghost Name -->
-  <h1 class="hero-name" aria-hidden="true">Kelly Ahola-Purdie</h1>
-
-</section>
-
-<!-- ===========================
-     About Section
-     =========================== -->
-<section class="section about" id="about">
-  <div class="container narrow">
-    <h2 class="section-title">About Me</h2>
-    <p>
-      Hi, I'm Kelly. I've been a graphic and web designer for years, and I love taking a site that feels
-      messy or half-done and turning it into something clean, calm, and easy to use.
-    </p>
-    <p>
-      I work with small business owners, coaches, and creatives who know their website should be doing more
-      for them but don't have the time to figure it out. You bring the ideas; I bring the structure, the design
-      eye, and the patience to get it finished.
-    </p>
-    <p>
-      I'm also a mom of four, so I know what it's like to juggle a lot. I keep things simple, organized, and on schedule.
-    </p>
-  </div>
-</section>
-
-<!-- ===========================
-     Services Section
-     =========================== -->
-<section class="section services" id="services">
-  <div class="container">
-    <h2 class="section-title">Services</h2>
-    <p class="section-intro">Clear prices, no surprises. Every project starts with a quick call so we agree on exactly what's included.</p>
-    <div class="projects-grid">
-      <div class="card proj-card">
-        <div class="card-inner">
-          <h3>Quick Fix</h3>
-          <p class="price">From $85</p>
-          <p>Broken links, layout glitches, menu or footer updates, and small content changes.</p>
+  <!-- HERO: calm canvas, one bold liquid moment -->
+  <section id="hello" class="hero wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Graphic &amp; web design for small businesses</p>
+        <h1 class="hero-title">I bring the chaos <span class="gradient-text">into focus.</span></h1>
+        <p class="lead">I'm Kelly. I fix, update, and build websites for small businesses, so yours finally feels finished, without the overwhelm.</p>
+        <div class="actions">
+          <a href="#contact" class="btn btn-primary">Book a free 15-minute call</a>
+          <a href="#work" class="btn btn-ghost">See my work</a>
         </div>
       </div>
-      <div class="card proj-card">
-        <div class="card-inner">
-          <h3>Page Refresh</h3>
-          <p class="price">From $340</p>
-          <p>Redesign one existing page with a clean layout, better images, and clear buttons.</p>
+
+      <div class="hero-art" id="heroArt" aria-hidden="true">
+        <div class="blob-wrap blob-main" data-depth="18">
+          <div class="liquid blob blob-main-fill">
+            <div class="glint" id="glint"></div>
+          </div>
         </div>
-      </div>
-      <div class="card proj-card">
-        <div class="card-inner">
-          <h3>New Page Build</h3>
-          <p class="price">From $425</p>
-          <p>A new page designed and built from your content.</p>
+        <div class="blob-wrap blob-teal" data-depth="-34">
+          <div class="liquid-2 blob blob-teal-fill"></div>
         </div>
-      </div>
-      <div class="card proj-card">
-        <div class="card-inner">
-          <h3>Website Care Plan</h3>
-          <p class="price">From $100/month</p>
-          <p>Monthly plugin and theme updates, backups, a security check, and up to 1 hour of small edits.</p>
+        <div class="blob-wrap blob-pink" data-depth="44">
+          <div class="liquid-2 blob blob-pink-fill"></div>
         </div>
       </div>
     </div>
-    <p class="section-note">Prices are based on $85/hour. Larger projects are quoted per page, and each page is paid before work begins.</p>
-  </div>
-</section>
+  </section>
 
-<!-- ===========================
-     Work Section
-     =========================== -->
-<section class="section projects" id="work">
-  <div class="container">
-    <h2 class="section-title">Recent Work</h2>
-    <div class="projects-grid">
-      <div class="card proj-card">
-        <div class="card-inner">
+  <!-- ABOUT -->
+  <section id="about" class="section wrap narrow">
+    <p class="eyebrow">About</p>
+    <h2>My brain is busy. My work is calm.</h2>
+    <p class="body">I've been a graphic and web designer for years, and I love taking a site that feels messy or half-done and turning it into something clean and easy to use.</p>
+    <p class="body">I work with small business owners, coaches, collectors, and creatives who know their website should be doing more for them. You bring the ideas; I bring the structure, the design eye, and the patience to get it finished. And as a mom of four, I keep things simple, organized, and on schedule.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">Services</p>
+      <h2>Clear prices. No surprises.</h2>
+      <p class="body">Every project starts with a quick call so we agree on exactly what's included.</p>
+    </div>
+    <div class="grid-4">
+      <article class="card">
+        <h3>Quick Fix</h3>
+        <p class="price">From $85</p>
+        <p>Broken links, layout glitches, menu or footer updates, and small content changes.</p>
+      </article>
+      <article class="card">
+        <h3>Page Refresh</h3>
+        <p class="price">From $340</p>
+        <p>Redesign one existing page with a clean layout, better images, and clear buttons.</p>
+      </article>
+      <article class="card">
+        <h3>New Page Build</h3>
+        <p class="price">From $425</p>
+        <p>A new page designed and built from your content.</p>
+      </article>
+      <article class="card card-dark">
+        <h3>Website Care Plan</h3>
+        <p class="price">From $100/mo</p>
+        <p>Monthly updates, backups, a security check, and up to 1 hour of small edits.</p>
+      </article>
+    </div>
+    <p class="note">Based on $85/hour. Larger projects are quoted per page, and each page is paid before work begins.</p>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">Recent work</p>
+      <h2>Messy in. Finished out.</h2>
+    </div>
+    <div class="grid-3">
+      <a class="card work-card" href="https://makeithappenwithluisa.ca" target="_blank" rel="noopener">
+        <div class="work-thumb thumb-sand">Make It Happen With Luisa</div>
+        <div class="work-body">
           <h3>Make It Happen With Luisa</h3>
-          <p>Faith-based life coaching site. I cleaned out an outdated template and rebuilt it around a calm,
-             consistent design: a clear headline and call to action, her four-pillar PAWS framework, coaching
-             offerings, and a working contact form with booking.</p>
-          <a class="card-link" href="https://makeithappenwithluisa.ca" target="_blank" rel="noopener">View Site →</a>
+          <p>Faith-based coaching site rebuilt from an outdated template into a calm, consistent design with clear calls to action.</p>
+          <span class="card-link">View site →</span>
         </div>
-      </div>
+      </a>
       <!-- TODO: replace with a brand, graphic, or web project -->
-      <div class="card proj-card">
-        <div class="card-inner">
-          <h3>Project Title</h3>
-          <p>Who it was for, what you changed, and the result, in one or two sentences.</p>
+      <article class="card work-card">
+        <div class="work-thumb thumb-teal">Coming soon</div>
+        <div class="work-body">
+          <h3>Your project here</h3>
+          <p>Who it was for, what changed, and the result.</p>
         </div>
-      </div>
-      <!-- TODO: travel photography or a design experiment -->
-      <div class="card proj-card">
-        <div class="card-inner">
-          <h3>Project Title</h3>
-          <p>A personal project that shows your eye, like a small travel photo gallery.</p>
+      </article>
+      <!-- TODO: travel photography gallery -->
+      <article class="card work-card">
+        <div class="work-thumb thumb-pink">Málaga · Madrid · Scotland</div>
+        <div class="work-body">
+          <h3>Through my lens</h3>
+          <p>A small gallery of travel photography from Spain and Scotland.</p>
         </div>
-      </div>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===========================
-     How It Works Section
-     =========================== -->
-<section class="section process" id="process">
-  <div class="container narrow">
-    <h2 class="section-title">Simple from start to finish</h2>
-    <ol class="steps">
-      <li><strong>Free call.</strong> We talk through what your site needs in 15 minutes.</li>
-      <li><strong>Clear quote.</strong> You get a written scope and price for each page or task.</li>
-      <li><strong>Content in.</strong> You send your text, photos, and links before work starts.</li>
-      <li><strong>I build it.</strong> One page at a time, so things stay focused and on schedule.</li>
-      <li><strong>Review and launch.</strong> One round of changes is included, then it goes live.</li>
+  <!-- PROCESS: the steps light up when you reach them -->
+  <section id="process" class="section wrap narrow">
+    <p class="eyebrow">How it works</p>
+    <h2>Simple from start to finish.</h2>
+    <ol class="steps" id="steps">
+      <li><span class="step-num">1</span><div><strong>Free call</strong><span>We talk through what your site needs in 15 minutes.</span></div></li>
+      <li><span class="step-num">2</span><div><strong>Clear quote</strong><span>You get a written scope and price for each page or task.</span></div></li>
+      <li><span class="step-num">3</span><div><strong>Content in</strong><span>You send your text, photos, and links before work starts.</span></div></li>
+      <li><span class="step-num">4</span><div><strong>I build it</strong><span>One page at a time, so things stay focused and on schedule.</span></div></li>
+      <li><span class="step-num">5</span><div><strong>Review and launch</strong><span>One round of changes is included, then it goes live.</span></div></li>
     </ol>
-  </div>
-</section>
+  </section>
 
-<!-- ===========================
-     Contact Section
-     =========================== -->
-<section class="section contact" id="contact">
-  <div class="container narrow">
-    <h2 class="section-title">Let's get your website working for you.</h2>
-    <p>Tell me a little about your site and what's bugging you about it. I'll reply within two business days.</p>
-    <a class="play-tag play-tag-primary"
-       href="mailto:kpurdie19@gmail.com?subject=Website%20help&amp;body=Name%3A%0AWebsite%20link%3A%0AWhat%20do%20you%20need%20help%20with%3F%0A">
-      Send Me a Message
-    </a>
-  </div>
-</section>
-
-<!-- ===========================
-     Just for Fun (Game)
-     =========================== -->
-<section class="section fun" id="fun">
-  <div class="container narrow">
-    <div class="fun-card">
-      <div class="fun-tiles" aria-hidden="true">
-        <span>?</span><span>42</span><span>?</span><span>7</span><span>?</span>
-      </div>
-      <h2 class="section-title">Take a Break</h2>
-      <p>I'm thinking of a number between 1 and 100. Can you guess it in 10 tries?</p>
-      <button class="play-tag play-tag-primary fun-play" data-bs-toggle="modal" data-bs-target="#gameModal">
-        Play Guess the Number
-      </button>
-      <div>
-        <button id="themeToggle" class="fun-switch" type="button">Switch to Arcade Mode</button>
-      </div>
+  <!-- CONTACT -->
+  <section id="contact" class="section wrap">
+    <div class="contact-card">
+      <h2>Let's get your website working for you.</h2>
+      <p class="body">Tell me a little about your site and what's bugging you about it. I'll reply within two business days.</p>
+      <a class="btn btn-primary btn-lg" href="mailto:kpurdie19@gmail.com?subject=Website%20help&amp;body=Name%3A%0AWebsite%20link%3A%0AWhat%20do%20you%20need%20help%20with%3F%0A">Send me a message</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===========================
-     Guess-The-Number Game Modal
-     =========================== -->
-<div class="modal fade" id="gameModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content p-4">
-      <h5>Guess the Number Game</h5>
-      <input type="number" id="guessInput" class="form-control my-2" placeholder="Guess a number 1–100">
-      <button id="guessBtn" class="btn btn-primary w-100">Guess</button>
-      <div id="result" class="mt-3"></div>
+  <!-- PLAY: the one loud, busy section, boxed in by calm -->
+  <section id="play" class="section wrap play-section">
+    <div class="play-card">
+      <div class="play-glow play-glow-a liquid" aria-hidden="true"></div>
+      <div class="play-glow play-glow-b liquid-2" aria-hidden="true"></div>
+      <div class="tiles" aria-hidden="true">
+        <span class="tile t1">?</span><span class="tile t2">42</span><span class="tile t3">?</span><span class="tile t4">7</span><span class="tile t5">?</span>
+      </div>
+      <h2>Take a break.</h2>
+      <p class="play-text">I'm thinking of a number between 1 and 100. Can you guess it in 10 tries?</p>
+      <form class="guess-row" id="guessForm">
+        <label for="guess" class="sr-only">Your guess</label>
+        <input id="guess" type="number" min="1" max="100" placeholder="1 – 100" inputmode="numeric">
+        <button type="submit" class="btn-play" id="guessBtn">Guess</button>
+      </form>
+      <p class="game-message" id="gameMessage" aria-live="polite"></p>
     </div>
-  </div>
-</div>
+  </section>
 
-<script src="assets/js/theme.js"></script><!-- 🧠 -->
-<script src="assets/js/hero.js"></script><!-- 🧠 -->
-<script src="assets/js/game.js"></script><!-- 🧠 -->
-<script src="assets/js/effects.js"></script><!-- 🧠 --> 
-<script src="assets/js/pinball.js"></script>
-<script src="assets/js/dots.js"></script> 
-<script src="assets/js/blobs.js"></script>
-<!-- 🧠  <script src="assets/js/scroll-nav.js"></script>
-<script src="assets/js/canvas-effects.js"></script>
-<script src="assets/js/canvas-main.js"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<audio id="correctSound" src="sounds/correct.mp3" preload="auto"></audio>
-<audio id="wrongSound" src="sounds/wrong.mp3" preload="auto"></audio>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</main>
 
+<footer class="footer wrap">
+  <span>© <span id="year">2026</span> kelly.ahola</span>
+  <a href="#hello">Back to top ↑</a>
+</footer>
+
+<!-- Corner ball: bounces when you scroll, turns into a back-to-top arrow on hover -->
+<a href="#hello" class="top-ball" id="topBall" aria-label="Back to top" title="Back to top">
+  <span class="top-ball-bounce" id="topBallBounce">
+    <span class="top-ball-dot">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+    </span>
+  </span>
+</a>
+
+<audio id="correctSound" src="sounds/correct.mp3" preload="none"></audio>
+<audio id="wrongSound" src="sounds/wrong.mp3" preload="none"></audio>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

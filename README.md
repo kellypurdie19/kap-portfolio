@@ -1,53 +1,29 @@
-# kap-portfolio
-> A dual-theme, interactive portfolio (Modern ↔ Arcade) with a silky animated background, a scroll-reactive “pinball” ball, and a playful Guess-the-Number mini-game.
+# kelly.ahola — portfolio
 
-<!-- // note: The one-liner above is your “value proposition.” Keep it crisp and specific. -->
+Portfolio site for Kelly Ahola-Purdie, graphic and web designer for small businesses.
 
-## ✨ Features
-- **Two themes**: _Modern_ (default, sleek) and _Arcade_ (neon, playful)
-- **Silk background** in both themes (subtle in Modern, vibrant in Arcade)
-- **Scroll pinball**: a floating ball that reacts to scroll + taps to “Back to Top”
-- **Mini-game**: Guess the Number (vanilla JavaScript)
-- **Dot-nav**: section indicator/jumps (lightweight, Resn-inspired)
-- Built with **Bootstrap 5** + **vanilla JS** (no build step)
+**Design idea:** "I bring the chaos into focus." A calm canvas with one bold, liquid moment.
 
-<!-- // note: Bullet lists help clients scan quickly. -->
+## What's on the page
+- Hero with morphing glassy bubbles that follow the mouse
+- A glowing path that draws itself as you scroll, plus a side index that lights up each section
+- Services with starting prices, recent work, and a five-step process that lights up when you reach it
+- A playable Guess the Number game in the "Take a Break" section
+- A small corner ball that bounces when you scroll and becomes a back-to-top arrow on hover
 
-## 📁 Project Structure
+## Files
+- `index.html` — the page
+- `assets/css/site.css` — all styles
+- `assets/js/site.js` — scroll effects, bubble interaction, and the game
+- `sounds/` — game sound effects
 
-<!-- // note: Keep tree tiny; it should match your repo exactly. -->
+Static HTML, CSS, and JavaScript. No build step.
 
-## 🧰 Requirements
-- A web browser (Chrome, Edge, Safari, Firefox)
-- Optional: Python 3 (for a quick local server)
-- Git + GitHub (to publish and deploy)
-- Cloudflare Pages account (for hosting)
-
-<!-- // note: No Node needed; this is a static site. -->
-
-## 🚀 Quick Start (Local)
-Option A — **Open the HTML file**  
-- Double-click `index.html` (works, but some features are better on a server)
-
-Option B — **Run a tiny local server**  
+## Preview locally
 ```bash
-# From inside the kap-portfolio folder
 python3 -m http.server 5500
-# Then visit http://localhost:5500
-# 1) Initialize a repo
-git init
+# then open http://localhost:5500
+```
 
-# 2) Add files
-git add .
-
-# 3) Commit
-git commit -m "feat: initial kap-portfolio with dual theme and interactive elements"
-
-# 4) Create a GitHub repo named kap-portfolio (on github.com)
-#    Then connect your local folder to it:
-git remote add origin https://github.com/kellypurdie19/kap-portfolio.git
-
-# 5) Push code
-git branch -M main
-git push -u origin main
-
+## Deploy
+Hosted on Cloudflare Pages, connected to this repo. Pushing to `main` updates the live site; other branches get their own preview link.
