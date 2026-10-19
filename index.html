@@ -38,15 +38,11 @@
 <canvas id="inkCanvas"></canvas>
 
 
-<!-- ===========================
-     Floating Theme Switcher 
-     =========================== -->
-<button id="themeToggle" class="theme-toggle">Arcade Mode</button>
 
 <!-- ===========================
      Pinball Ball
      =========================== -->
-<div id="pinball" class="pinball"></div>
+<button id="pinball" class="pinball" type="button" aria-label="Back to top" title="Back to top">&uarr;</button>
 
 <!-- ===========================
      Scroll Dot Navigation
@@ -232,6 +228,9 @@
       <button class="play-tag play-tag-primary fun-play" data-bs-toggle="modal" data-bs-target="#gameModal">
         Play Guess the Number
       </button>
+      <div>
+        <button id="themeToggle" class="fun-switch" type="button">Switch to Arcade Mode</button>
+      </div>
     </div>
   </div>
 </section>

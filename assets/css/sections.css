@@ -136,3 +136,40 @@ a:focus-visible, button:focus-visible {
 
 /* Game window: solid background in Modern Mode */
 [data-theme="modern"] #gameModal .modal-content { background: #fff; }
+
+/* ===== Arcade Mode switch (lives in the game card) ===== */
+.fun-switch {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  opacity: 0.9;
+  cursor: pointer;
+}
+.fun-switch:hover { opacity: 1; }
+[data-theme="arcade"] .fun-switch { color: #6ff; }
+
+/* ===== Back-to-top ball ===== */
+.pinball {
+  width: 44px !important;
+  height: 44px !important;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  background: rgb(97,0,253) !important;
+  box-shadow: 0 6px 16px rgba(97,0,253,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.1s ease-out !important;
+}
+.pinball.is-visible { opacity: 1; pointer-events: auto; }
+[data-theme="arcade"] .pinball {
+  background: #ff00c8 !important;
+  box-shadow: 0 0 14px rgba(255,0,200,0.7);
+}
