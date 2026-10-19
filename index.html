@@ -223,9 +223,16 @@
      =========================== -->
 <section class="section fun" id="fun">
   <div class="container narrow">
-    <h2 class="section-title">Take a Break</h2>
-    <p>Every website needs a little personality. Guess the number before you go.</p>
-    <button class="play-tag" data-bs-toggle="modal" data-bs-target="#gameModal">Play the Game</button>
+    <div class="fun-card">
+      <div class="fun-tiles" aria-hidden="true">
+        <span>?</span><span>42</span><span>?</span><span>7</span><span>?</span>
+      </div>
+      <h2 class="section-title">Take a Break</h2>
+      <p>I'm thinking of a number between 1 and 100. Can you guess it in 10 tries?</p>
+      <button class="play-tag play-tag-primary fun-play" data-bs-toggle="modal" data-bs-target="#gameModal">
+        Play Guess the Number
+      </button>
+    </div>
   </div>
 </section>
 
