@@ -8,7 +8,7 @@ const aboutEl = document.querySelector('.about-type');
 const isModern = () => document.documentElement.getAttribute("data-theme") === "modern";
 
 const textOriginal = "Hello. I am Kelly Ahola-Purdie";
-const textReplace  = "Hello. I am —";
+const textReplace  = "Websites that finally feel finished.";
 
 function typeSequence() {
   if (!aboutEl || !isModern()) return;

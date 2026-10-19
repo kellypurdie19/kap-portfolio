@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kelly Ahola-Purdie — Portfolio</title>
+  <title>Kelly Ahola-Purdie — Web Design for Small Businesses</title>
+  <meta name="description" content="Kelly Ahola-Purdie is a graphic and web designer who helps small businesses fix, update, and build their WordPress sites, without the overwhelm.">
 
   <!-- 🧠 Fonts: Modern (Inter) + Chic serif accent (Playfair) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -27,6 +28,7 @@
   <link rel="stylesheet" href="assets/css/effects.css"><!-- 🧠 -->
   <link rel="stylesheet" href="assets/css/game.css"><!-- 🧠 -->
   <link rel="stylesheet" href="assets/css/pinball.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
 
 
 
@@ -62,75 +64,168 @@
     <div class="hero-text-wrapper">
       <h1 class="about-type"></h1>
       <p class="hero-sub">
-        A creative front-end designer building playful, intuitive web experiences.
+        I'm Kelly, a graphic and web designer who helps small businesses fix, update, and build their WordPress sites, without the overwhelm.
       </p>
 
-      <button class="play-tag" data-bs-toggle="modal" data-bs-target="#gameModal">
-        Play the Game
-      </button>
+      <div class="hero-actions">
+        <a class="play-tag play-tag-primary" href="#contact">Book a Free 15-Minute Call</a>
+        <a class="play-tag" href="#work">See My Work</a>
+      </div>
     </div>
   </div>
 
   <!-- Arcade Mode -->
   <div class="hero-arcade">
-    <h1>Hello. I am Kelly —</h1>
+    <h1>Websites that finally feel finished.</h1>
     <p class="hero-sub">
-      Creative Front-End Designer building intuitive, playful, modern web experiences.
+      I'm Kelly, a graphic and web designer who helps small businesses fix, update, and build their WordPress sites, without the overwhelm.
     </p>
 
-    <button class="play-tag" data-bs-toggle="modal" data-bs-target="#gameModal">
-      Want to play?
-    </button>
+    <div class="hero-actions">
+      <a class="play-tag play-tag-primary" href="#contact">Book a Free 15-Minute Call</a>
+      <a class="play-tag" href="#work">See My Work</a>
+    </div>
   </div>
 
   <!-- Ghost Name -->
-  <h1 class="hero-name">Kelly Ahola-Purdie</h1>
+  <h1 class="hero-name" aria-hidden="true">Kelly Ahola-Purdie</h1>
 
 </section>
-
-
-
 
 <!-- ===========================
      About Section
      =========================== -->
-<section class="section about">
-  <div class="container">
+<section class="section about" id="about">
+  <div class="container narrow">
     <h2 class="section-title">About Me</h2>
     <p>
-      I blend UX instincts with front-end creativity — building interfaces that feel fluid,
-      modern, and a little unexpected. Currently learning React, Angular, and Web Animations.
+      Hi, I'm Kelly. I've been a graphic and web designer for years, and I love taking a site that feels
+      messy or half-done and turning it into something clean, calm, and easy to use.
+    </p>
+    <p>
+      I work with small business owners, coaches, and creatives who know their website should be doing more
+      for them but don't have the time to figure it out. You bring the ideas; I bring the structure, the design
+      eye, and the patience to get it finished.
+    </p>
+    <p>
+      I'm also a mom of four, so I know what it's like to juggle a lot. I keep things simple, organized, and on schedule.
     </p>
   </div>
 </section>
 
 <!-- ===========================
-     Projects Section
+     Services Section
      =========================== -->
-<section class="section projects">
+<section class="section services" id="services">
   <div class="container">
-    <h2 class="section-title">Work & Experiments</h2>
-    <div class="grid">
-        <div class="card proj-card">
-            <div class="card-inner">
-                <h3>Project Title</h3>
-                <p>Short description of your project.</p>
-            </div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-intro">Clear prices, no surprises. Every project starts with a quick call so we agree on exactly what's included.</p>
+    <div class="projects-grid">
+      <div class="card proj-card">
+        <div class="card-inner">
+          <h3>Quick Fix</h3>
+          <p class="price">From $60</p>
+          <p>Broken links, layout glitches, menu or footer updates, and small content changes.</p>
         </div>
-
-        <div class="card proj-card">
-            <div class="card-inner">
-                <h3>Project Title</h3>
-                <p>Short description of your project.</p>
-            </div>
+      </div>
+      <div class="card proj-card">
+        <div class="card-inner">
+          <h3>Page Refresh</h3>
+          <p class="price">From $240</p>
+          <p>Redesign one existing page with a clean layout, better images, and clear buttons.</p>
         </div>
-        <div class="card proj-card">
-            <div class="card-inner">
-                <h3>Project Title</h3>
-                <p>Short description of your project.</p>
-            </div>
+      </div>
+      <div class="card proj-card">
+        <div class="card-inner">
+          <h3>New Page Build</h3>
+          <p class="price">From $300</p>
+          <p>A new page designed and built from your content.</p>
         </div>
+      </div>
+      <div class="card proj-card">
+        <div class="card-inner">
+          <h3>Website Care Plan</h3>
+          <p class="price">From $75/month</p>
+          <p>Monthly plugin and theme updates, backups, a security check, and up to 1 hour of small edits.</p>
+        </div>
+      </div>
     </div>
+    <p class="section-note">Prices are based on $60/hour. Larger projects are quoted per page, and each page is paid before work begins.</p>
+  </div>
+</section>
+
+<!-- ===========================
+     Work Section
+     =========================== -->
+<section class="section projects" id="work">
+  <div class="container">
+    <h2 class="section-title">Recent Work</h2>
+    <div class="projects-grid">
+      <div class="card proj-card">
+        <div class="card-inner">
+          <h3>Make It Happen With Luisa</h3>
+          <p>Faith-based life coaching site. I cleaned out an outdated template and rebuilt it around a calm,
+             consistent design: a clear headline and call to action, her four-pillar PAWS framework, coaching
+             offerings, and a working contact form with booking.</p>
+          <a class="card-link" href="https://makeithappenwithluisa.ca" target="_blank" rel="noopener">View Site →</a>
+        </div>
+      </div>
+      <!-- TODO: replace with a brand, graphic, or web project -->
+      <div class="card proj-card">
+        <div class="card-inner">
+          <h3>Project Title</h3>
+          <p>Who it was for, what you changed, and the result, in one or two sentences.</p>
+        </div>
+      </div>
+      <!-- TODO: travel photography or a design experiment -->
+      <div class="card proj-card">
+        <div class="card-inner">
+          <h3>Project Title</h3>
+          <p>A personal project that shows your eye, like a small travel photo gallery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     How It Works Section
+     =========================== -->
+<section class="section process" id="process">
+  <div class="container narrow">
+    <h2 class="section-title">Simple from start to finish</h2>
+    <ol class="steps">
+      <li><strong>Free call.</strong> We talk through what your site needs in 15 minutes.</li>
+      <li><strong>Clear quote.</strong> You get a written scope and price for each page or task.</li>
+      <li><strong>Content in.</strong> You send your text, photos, and links before work starts.</li>
+      <li><strong>I build it.</strong> One page at a time, so things stay focused and on schedule.</li>
+      <li><strong>Review and launch.</strong> One round of changes is included, then it goes live.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===========================
+     Contact Section
+     =========================== -->
+<section class="section contact" id="contact">
+  <div class="container narrow">
+    <h2 class="section-title">Let's get your website working for you.</h2>
+    <p>Tell me a little about your site and what's bugging you about it. I'll reply within two business days.</p>
+    <a class="play-tag play-tag-primary"
+       href="mailto:kpurdie19@gmail.com?subject=Website%20help&amp;body=Name%3A%0AWebsite%20link%3A%0AWhat%20do%20you%20need%20help%20with%3F%0A">
+      Send Me a Message
+    </a>
+  </div>
+</section>
+
+<!-- ===========================
+     Just for Fun (Game)
+     =========================== -->
+<section class="section fun" id="fun">
+  <div class="container narrow">
+    <h2 class="section-title">Take a Break</h2>
+    <p>Every website needs a little personality. Guess the number before you go.</p>
+    <button class="play-tag" data-bs-toggle="modal" data-bs-target="#gameModal">Play the Game</button>
   </div>
 </section>
 

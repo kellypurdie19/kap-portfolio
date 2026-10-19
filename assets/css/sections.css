@@ -1,0 +1,54 @@
+/* Client-focused sections: services, process, contact, fun */
+
+.container.narrow { max-width: 760px; }
+
+.section-title { font-weight: 800; margin-bottom: 1rem; }
+.section-intro { font-size: 1.1rem; max-width: 640px; }
+.section-note  { font-size: 0.9rem; opacity: 0.75; margin-top: -2rem; }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.hero-arcade .hero-actions { justify-content: center; }
+
+a.play-tag { text-decoration: none; }
+.play-tag-primary {
+  background: rgb(97,0,253);
+  color: #fff;
+  border-color: transparent;
+}
+.play-tag-primary:hover { background: rgb(80,0,210); color: #fff; }
+[data-theme="arcade"] .play-tag-primary {
+  background: rgba(255,0,128,0.55);
+}
+
+.proj-card .price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgb(97,0,253);
+  margin-bottom: 0.5rem;
+}
+[data-theme="arcade"] .proj-card .price { color: #ff4fa8; }
+
+.card-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: rgb(97,0,253);
+  text-decoration: none;
+}
+[data-theme="arcade"] .card-link { color: #6ff; }
+
+.steps { padding-left: 1.25rem; }
+.steps li { margin-bottom: 0.75rem; font-size: 1.05rem; }
+
+.contact .play-tag,
+.fun .play-tag { margin-top: 1rem; }
+
+/* Keyboard users can still see where they are, since the page hides the cursor */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
