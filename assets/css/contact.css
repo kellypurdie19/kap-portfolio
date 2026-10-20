@@ -82,3 +82,23 @@ body.modal-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .contact-backdrop, .contact-panel { animation: none; }
 }
+
+/* Email chooser */
+.contact-address {
+  margin: 0 0 20px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 24px;
+  background: linear-gradient(90deg, #6100FD, #F2479B 60%, #14B8B0); -webkit-background-clip: text; background-clip: text; color: transparent;
+  word-break: break-word;
+}
+.contact-label { margin: 0 0 12px; font-size: 14px; font-weight: 700; }
+.contact-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.contact-option {
+  display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 18px;
+  border-radius: 16px; border: 1.5px solid #DCD6E8; background: #FAF9FC; color: #16131F;
+  font: inherit; font-weight: 700; font-size: 16px; text-decoration: none; cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.contact-option svg { color: #5A00E6; flex: none; }
+.contact-option:hover { border-color: #5A00E6; background: #FFFFFF; color: #16131F; transform: translateY(-2px); }
+.contact-option:focus-visible { outline: 3px solid #F2479B; outline-offset: 3px; }
+#contactStatus { margin-top: 14px; }
+@media (max-width: 400px) { .contact-options { grid-template-columns: 1fr; } }

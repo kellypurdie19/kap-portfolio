@@ -207,38 +207,34 @@
   <a href="#hello">Back to top ↑</a>
 </footer>
 
-<!-- Contact pop-up form -->
+<!-- Contact pop-up: pick how to email -->
 <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" hidden>
   <div class="contact-backdrop" data-close></div>
   <div class="contact-panel">
     <button type="button" class="contact-close" data-close aria-label="Close">&times;</button>
     <h2 id="contactTitle">Let's talk.</h2>
     <p class="contact-intro">Tell me a little about your site and what's bugging you about it. I'll reply within two business days.</p>
-    <form class="contact-form" id="contactForm">
-      <div class="contact-field">
-        <label for="cName">Your name</label>
-        <input id="cName" name="name" type="text" autocomplete="name" required>
-      </div>
-      <div class="contact-field">
-        <label for="cEmail">Your email</label>
-        <input id="cEmail" name="email" type="email" autocomplete="email" required>
-      </div>
-      <div class="contact-field">
-        <label for="cSite">Your website (optional)</label>
-        <input id="cSite" name="website" type="text" inputmode="url" placeholder="yourbusiness.com">
-      </div>
-      <div class="contact-field">
-        <label for="cMsg">How can I help?</label>
-        <textarea id="cMsg" name="message" required></textarea>
-      </div>
-      <div class="contact-honey" aria-hidden="true">
-        <label for="cBot">Leave this empty</label>
-        <input id="cBot" type="checkbox" name="botcheck" tabindex="-1">
-      </div>
-      <button type="submit" class="contact-submit" id="contactSubmit">Send</button>
-      <p class="contact-status" id="contactStatus" aria-live="polite"></p>
-      <p class="contact-alt">Prefer email? <a href="mailto:me@kellyahola.com">me@kellyahola.com</a></p>
-    </form>
+    <p class="contact-address">me@kellyahola.com</p>
+    <p class="contact-label">Write to me using:</p>
+    <div class="contact-options">
+      <a class="contact-option" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=me@kellyahola.com&amp;su=Website%20help" target="_blank" rel="noopener">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        Gmail
+      </a>
+      <a class="contact-option" href="https://outlook.live.com/mail/0/deeplink/compose?to=me@kellyahola.com&amp;subject=Website%20help" target="_blank" rel="noopener">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        Outlook
+      </a>
+      <a class="contact-option" href="mailto:me@kellyahola.com?subject=Website%20help">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        Email app
+      </a>
+      <button type="button" class="contact-option" id="copyEmail">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+        <span id="copyLabel">Copy address</span>
+      </button>
+    </div>
+    <p class="contact-status is-success" id="contactStatus" aria-live="polite"></p>
   </div>
 </div>
 
