@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/contact.css">
   <style>
     :root { --ink: #16131F; --soft: #45405A; --violet: #5A00E6; --pink: #F2479B; --teal: #14B8B0; }
     * { box-sizing: border-box; }
@@ -42,7 +43,7 @@
     .contact {
       display: inline-flex; align-items: center; margin-top: 32px; min-height: 52px; padding: 0 28px;
       border-radius: 999px; background: var(--violet); color: #fff; font-weight: 700; font-size: 16px;
-      text-decoration: none; align-self: flex-start; transition: background .2s ease;
+      text-decoration: none; align-self: flex-start; transition: background .2s ease; border: none; cursor: pointer; font-family: inherit;
     }
     .contact:hover { background: #4A00C4; color: #fff; }
     .contact:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
@@ -104,10 +105,46 @@
     <p class="eyebrow">Graphic &amp; web design for small businesses</p>
     <h1>Something good is <span class="grad">coming soon.</span></h1>
     <p class="lead">I'm Kelly. I'm putting the finishing touches on my new site. In the meantime, I'd love to hear about yours.</p>
-    <a class="contact" href="mailto:me@kellyahola.com">me@kellyahola.com</a>
+    <a class="contact" href="mailto:me@kellyahola.com" data-contact>Send me a message</a>
   </main>
 
   <footer>© <span id="y">2026</span> kelly.ahola</footer>
+
+<!-- Contact pop-up form -->
+<div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" hidden>
+  <div class="contact-backdrop" data-close></div>
+  <div class="contact-panel">
+    <button type="button" class="contact-close" data-close aria-label="Close">&times;</button>
+    <h2 id="contactTitle">Let's talk.</h2>
+    <p class="contact-intro">Tell me a little about your site and what's bugging you about it. I'll reply within two business days.</p>
+    <form class="contact-form" id="contactForm">
+      <div class="contact-field">
+        <label for="cName">Your name</label>
+        <input id="cName" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="contact-field">
+        <label for="cEmail">Your email</label>
+        <input id="cEmail" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="contact-field">
+        <label for="cSite">Your website (optional)</label>
+        <input id="cSite" name="website" type="text" inputmode="url" placeholder="yourbusiness.com">
+      </div>
+      <div class="contact-field">
+        <label for="cMsg">How can I help?</label>
+        <textarea id="cMsg" name="message" required></textarea>
+      </div>
+      <div class="contact-honey" aria-hidden="true">
+        <label for="cBot">Leave this empty</label>
+        <input id="cBot" type="checkbox" name="botcheck" tabindex="-1">
+      </div>
+      <button type="submit" class="contact-submit" id="contactSubmit">Send</button>
+      <p class="contact-status" id="contactStatus" aria-live="polite"></p>
+      <p class="contact-alt">Prefer email? <a href="mailto:me@kellyahola.com">me@kellyahola.com</a></p>
+    </form>
+  </div>
+</div>
+
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
@@ -130,5 +167,6 @@
       });
     })();
   </script>
+  <script src="assets/js/contact.js"></script>
 </body>
 </html>
